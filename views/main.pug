@@ -1,0 +1,18 @@
+.col-6.card
+    h2.card-header Burger Order
+    #order-display.card-body(style="height: 500px")
+
+.col-6.card
+    h2.card-header Devoured Burgers
+    #devoured-display.card-body(style="height: 500px")
+
+.col.card
+    h2.card-header Add an Order
+    form.create-form.card-body(style="height: 200px")
+        .form-group
+            label(for="new-burger") Burger Name:
+            input(type="text" name="name")#new-burger
+        .form-group
+            label(for="customer") Customer Name:
+            input(type="text" name="name")#customer
+        button.btn.btn-primary(type="button") Add Order

@@ -1,0 +1,35 @@
+{
+  "name": "Taskr",
+  "version": "1.0.0",
+  "description": "project management system",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimocreary/Project2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimocreary/Project2/issues"
+  },
+  "homepage": "https://github.com/kimocreary/Project2#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "bootstrap": "^4.3.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "gulp": "^4.0.2",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-watch": "^5.0.1",
+    "keys": "^0.1.2",
+    "mysql2": "^2.0.0",
+    "nodemon": "^1.19.4",
+    "pug": "^2.0.4",
+    "sequelize": "^5.21.2"
+  }
+}
