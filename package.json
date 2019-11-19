@@ -18,17 +18,21 @@
   "homepage": "https://github.com/kimocreary/Project2#readme",
   "dependencies": {
     "babel": "^6.23.0",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^4.3.1",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "codemirror": "^5.49.2",
     "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
-    "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
     "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.0",
     "gulp": "^4.0.2",
+    "gulp-eslint": "^6.0.0",
+    "gulp-message": "^1.0.4",
     "gulp-nodemon": "^2.4.2",
     "gulp-pug": "^4.0.1",
     "gulp-rename": "^1.4.0",
@@ -38,8 +42,15 @@
     "mocha": "^6.2.2",
     "mysql2": "^2.0.0",
     "nodemon": "^1.19.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "prettier": "^1.19.1",
     "pug": "^2.0.4",
     "sequelize": "^5.21.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-plugin-json": "^2.0.1",
+    "eslint-plugin-pug": "^1.1.1"
   }
 }
