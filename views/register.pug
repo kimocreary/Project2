@@ -1,0 +1,35 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description' content='')
+  meta(name='author' content='')
+  title TaskR| Register
+  // Latest compiled and minified CSS
+
+.container
+  .row.centered-form
+    .col-xs-12.col-sm-8.col-md-4.col-sm-offset-2.col-md-offset-4
+      .panel.panel-default
+        .panel-heading
+          h3.panel-title Please Sign Up
+        .panel-body
+          form(role='form')
+            .row
+              .col-xs-6.col-sm-6.col-md-6
+                .form-group
+                  input#first_name.form-control.input-sm(type='text' name='first_name' placeholder='First Name')
+              .col-xs-6.col-sm-6.col-md-6
+                .form-group
+                  input#last_name.form-control.input-sm(type='text' name='last_name' placeholder='Last Name')
+            .form-group
+              input#email.form-control.input-sm(type='email' name='email' placeholder='Email Address')
+            .row
+              .col-xs-6.col-sm-6.col-md-6
+                .form-group
+                  input#password.form-control.input-sm(type='password' name='password' placeholder='Password')
+              .col-xs-6.col-sm-6.col-md-6
+                .form-group
+                  input#password_confirmation.form-control.input-sm(type='password' name='password_confirmation' placeholder='Confirm Password')
+            a.btn.btn-info.btn-block(input='' type='submit' value='Register' href='/present') Register

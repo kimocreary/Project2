@@ -1,0 +1,75 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title TaskR
+  // Bootstrap CSS & JS
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  // jQuery
+  script(src='https://code.jquery.com/jquery.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+.container
+  .jumbotron
+    h1 TaskR
+    h3 assignments !
+    hr
+    a.btn.btn-danger.btn-lg(href='/')
+      span.fa.fa-eye
+      |  Search assignments
+    a.btn.btn-danger.btn-lg(href='/add')
+      span.fa.fa-plus
+      |  Add New Book
+    a.btn.btn-danger.btn-lg(href='/all')
+      span.fa.fa-th-list
+      |  All assignments
+    a.btn.btn-danger.btn-lg(href='/long')
+      span.fa.fa-th-list
+      |  Long assignments
+    a.btn.btn-danger.btn-lg(href='/short')
+      span.fa.fa-th-list
+      |  Short assignments
+  .row
+    .col-lg-12
+      .card.mb-4
+        .card-header
+          | Book Search
+        .card-body
+          input#book-search.form-control(type='text')
+          br
+          .text-right
+            button#search-btn.btn.btn-primary.btn-md
+              span.fa.fa-search
+              |  Search
+      .card.mb-4
+        .card-header
+          | Author Search
+        .card-body
+          input#author-search.form-control(type='text')
+          br
+          .text-right
+            button#author-search-btn.btn.btn-primary.btn-md
+              span.fa.fa-search
+              |  Search
+      .card.mb-4
+        .card-header
+          | Genre Search
+        .card-body
+          input#genre-search.form-control(type='text')
+          br
+          .text-right
+            button#genre-search-btn.btn.btn-primary.btn-md
+              span.fa.fa-search
+              |  Search
+      .card.mb-4
+        .card-header
+          | Book Search Results
+        .card-body
+          #stats.well
+            h2#title assignments:
+            div
+              h6
+                strong Written by 
+                span#author
+             
+// Custom Script
+script(src='js/view.js' type='text/javascript')

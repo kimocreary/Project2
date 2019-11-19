@@ -1,0 +1,51 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title TaskR| Add New Reminder
+ 
+.container.topContainer
+  .jumbotron.jumbotron-fluid
+    .optionsDiv
+      a.btn-lg.notSelected(href='/previous')
+        span.fa.fa-arrow-circle-left
+        |  Previous Reminders
+      a.btn-lg.notSelected(href='/present')
+        | Today&apos;s Reminders Below
+        span.fa.fa-arrow-circle-down
+      a.btn-lg.notSelected(href='/future')
+        | Future Reminders 
+        span.fa.fa-arrow-circle-right
+      hr
+      a#addNew.btn-lg.selected(href='/addNew')
+        | Add New Reminders
+        span.fa.fa-plus
+    .container
+      form
+        #form-row
+          .form-row.addForm
+            .form-group.col-md-5
+              h4
+                label.badge.badge-dark.addFormLabel(for='reminder')  Reminder Name 
+              input#newReminder.form-control(type='text' required='')
+            .form-group.col-md-4
+              h4
+                label.badge.badge-dark.addFormLabel(for='date')  Date 
+              input#newDate.form-control(type='date' min='2018-01-01' required='')
+            .form-group.col-md-2
+              h4
+                label.badge.badge-dark.addFormLabel(for='time')  Time 
+              input#newTime.form-control(type='time' required='')
+            .form-group.col-md-1
+              h4
+                label.badge.badge-dark.addFormLabelSubmit(for='submit')  Submit 
+              button#addSubmit.btn.btn-dark.mb-2(type='submit' onclick='window.location.reload()') Submit
+  .container
+    .row
+      .col-lg-12
+        .card
+          .card-header.cardHeaderText
+            | All of the Reminders
+          #reminderSection.card-body
+            // Content will go in here
+// Custom Script
+script(src='js/add.js' type='text/javascript')

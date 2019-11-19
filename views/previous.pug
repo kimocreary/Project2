@@ -1,0 +1,34 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title TaskR | Previous Reminders
+  // Bootstrap CSS & JS
+.container.topContainer
+  .jumbotron.jumbotron-fluid
+    .optionsDiv
+      // <div class="row">
+      a.btn-lg.selected(href='/previous')
+        span.fa.fa-arrow-circle-left
+        |  Previous Reminders
+      a.btn-lg.notSelected(href='/present')
+        | Today&apos;s Reminders Below
+        span.fa.fa-arrow-circle-down
+      a.btn-lg.notSelected(href='/future')
+        | Future Reminders 
+        span.fa.fa-arrow-circle-right
+      // </div>
+      hr
+      a#addNew.btn-lg.notSelected(href='/addNew')
+        | Add
+        | New Reminders
+        span.fa.fa-plus
+  .container
+    .row
+      .col-lg-12
+        .card
+          .card-header.cardHeaderText
+            | Previous Reminders
+          #reminderSection.card-body
+            // Content will go in here
+// Custom Script
+script(src='js/previous.js' type='text/javascript')

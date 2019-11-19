@@ -1,0 +1,70 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title Express Library
+  // Bootstrap CSS & JS
+.container
+  .jumbotron
+    h1 Express Library
+    h3 assignments 
+    hr
+    a.btn-lg(href='/')
+      span.fa.fa-eye
+      |  Search assignments
+    a.btn-lg(href='/add')
+      span.fa.fa-plus
+      |  Add New Book
+    a.btn-lg(href='/all')
+      span.fa.fa-th-list
+      |  All assignments
+    a.btn-lg(href='/long')
+      span.fa.fa-th-list
+      |  Long assignments
+    a.btn-lg(href='/short')
+      span.fa.fa-th-list
+      |  Short assignments
+  .row
+    .col-lg-12
+      .card.mb-4
+        .card-header
+          | Book Search
+        .card-body
+          input#book-search.form-control(type='text')
+          br
+          .text-right
+            button#search-btn.btn.btn-primary.btn-md
+              span.fa.fa-search
+              |  Search
+      .card.mb-4
+        .card-header
+          | Author Search
+        .card-body
+          input#author-search.form-control(type='text')
+          br
+          .text-right
+            button#author-search-btn.btn.btn-primary.btn-md
+              span.fa.fa-search
+              |  Search
+      .card.mb-4
+        .card-header
+          | Genre Search
+        .card-body
+          input#genre-search.form-control(type='text')
+          br
+          .text-right
+            button#genre-search-btn.btn.btn-primary.btn-md
+              span.fa.fa-search
+              |  Search
+      .card.mb-4
+        .card-header
+          | Book Search Results
+        .card-body
+          #stats.well
+            h2#title assignments:
+            div
+              h6
+                strong Assigned by 
+                span#author
+           
+// Custom Script
+script(src='js/view.js' type='text/javascript')
