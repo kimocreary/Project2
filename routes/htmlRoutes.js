@@ -1,4 +1,5 @@
 var db = require("../models");
+
 var path = require("path");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
@@ -19,6 +20,7 @@ module.exports = function(app) {
       res.redirect("/members");
     }
     res.sendFile(path.join(__dirname, "../public/signup.html"));
+
   });
 
   // Load example page and pass in an example by id
@@ -31,7 +33,6 @@ module.exports = function(app) {
       });
     });
   });
-
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
@@ -50,4 +51,5 @@ module.exports = function(app) {
   // app.get("*", function(req, res) {
   //   res.render("404");
   // });
+
 };
