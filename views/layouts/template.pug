@@ -1,15 +1,15 @@
 doctype html
 html(lang="en")
   head
-    block head
+    include ../includes/head.pug
   body.container-fluid
-    header
-      block navbar
+    nav.navbar.navbar-default
+      include ../includes/navbar.pug
     main
       .container
         .row
           .col-md-6.col-md-offset-3
             block content
-            block scripts
-    footer
-      block footer
+    footer#sticky-footer
+      include ../includes/footer.pug
+    include ../includes/scripts.pug
