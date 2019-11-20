@@ -1,14 +1,12 @@
 extends ./layouts/template.pug
 
 block content
-  h2 Login Form
+  h2 Task Form
   form.login
     .form-group
-      // create email for new user
       label(for='addEmail') Email address
       input#email-input.form-control(type='email' placeholder='Email')
     .form-group
-      // generate password for user
       label(for='addPassword') Password
       input#password-input.form-control(type='password' placeholder='Password')
     button.btn.btn-default(type='submit') Login
