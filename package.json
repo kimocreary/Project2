@@ -1,30 +1,57 @@
 {
-  "name": "node-handlebars-boilerplate",
+
+  "name": "Taskr",
   "version": "1.0.0",
-  "description": "Project 2 Starter",
+  "description": "project management system",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "lint": "eslint --quiet .",
-    "fix": "eslint --fix .",
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u bdd --reporter spec --exit"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimocreary/Project2.git"
+  },
+  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "dotenv": "^8.0.0",
-    "express": "^4.17.0",
-    "express-handlebars": "^3.1.0",
-    "mysql2": "^1.6.5",
-    "sequelize": "^5.8.6"
+  "bugs": {
+    "url": "https://github.com/kimocreary/Project2/issues"
   },
-  "devDependencies": {
+  "homepage": "https://github.com/kimocreary/Project2#readme",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.3.1",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "cross-env": "^5.2.0",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "mocha": "^6.1.4",
-    "prettier": "^1.17.1"
+    "codemirror": "^5.49.2",
+    "cross-env": "^6.0.3",
+    "dotenv": "^8.2.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.0",
+    "gulp": "^4.0.2",
+    "gulp-eslint": "^6.0.0",
+    "gulp-message": "^1.0.4",
+    "gulp-nodemon": "^2.4.2",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-watch": "^5.0.1",
+    "keys": "^0.1.2",
+    "mocha": "^6.2.2",
+    "mysql2": "^2.0.0",
+    "nodemon": "^1.19.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "prettier": "^1.19.1",
+    "pug": "^2.0.4",
+    "sequelize": "^5.21.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-plugin-json": "^2.0.1",
+    "eslint-plugin-pug": "^1.1.1"
   }
 }
