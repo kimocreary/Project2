@@ -1,4 +1,5 @@
 var db = require("../models");
+
 var path = require("path");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
@@ -18,12 +19,13 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/calendar.html"));
-  });
-  app.get("/calendar", function(req, res) {
-
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
+
+  app.get("/signup", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
+  });
+
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(
@@ -34,7 +36,6 @@ module.exports = function(app) {
       });
     });
   });
-
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
