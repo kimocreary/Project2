@@ -6,10 +6,7 @@ body
   nav.navbar.navbar-default
     include ../includes/navbar.pug
     main
-      .container
-        .row
-          .col-md-6.col-md-offset-3
-            block content
-    footer#sticky-footer
-      include ../includes/footer.pug
-    include ../includes/scripts.pug
+      block content
+  footer#sticky-footer
+    include ../includes/footer.pug
+  include ../includes/scripts.pug

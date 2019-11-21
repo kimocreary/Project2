@@ -36,6 +36,7 @@ module.exports = function(app) {
       });
     });
   });
+
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
@@ -50,8 +51,8 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-  // Render 404 page for any unmatched routes
-  // app.get("*", function(req, res) {
-  //   res.render("404");
-  // });
+  //Render 404 page for any unmatched routes
+  app.get("*", function(req, res) {
+    res.render("../public/404.html");
+  });
 };
