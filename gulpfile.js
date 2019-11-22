@@ -79,4 +79,4 @@ gulp.task("server", function() {
 });
 
 // runs several tasks at once
-gulp.task("start", gulp.series("pug", "sass", "lint"));
+gulp.task("start", gulp.parallel("pug", "sass", "lint"));

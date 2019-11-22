@@ -1,22 +1,2 @@
-<!DOCTYPE html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="/public/assets/css/sidenav.css">
-</head>
-<body>
-  <div class="sidenav" id="mySidenav"><a class="closebtn" href="javascript:void(0)" onclick="closeNav()">&times;</a><a href="#">About</a><a href="#">Services</a><a href="#">Clients</a><a href="#">Contact</a></div>
-  <div id="main">
-    <h2>Sidenav Push Example</h2>
-    <p>Click on the element below to open the side navigation menu, and push this content to the right.</p><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#x2630; open</span>
-  </div>
-  <script>
-    function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-    }
-    function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-    }
-  </script>
-</body>
+
+<nav class="nav flex-column"><a class="nav-link" href="#">Link</a></nav>
