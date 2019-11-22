@@ -1,26 +1,11 @@
+// Requiring our models and passport as we've configured it
 var db = require("../models");
-
 var passport = require("../config/passport");
 
 module.exports = function(app) {
-  app.get("/api/users", function(req, res) {
-    db.User.findAll({}).then(function(dbUser) {
-      res.json(dbUser);
-    });
-  });
-
-  app.post("/api/users", function(req, res) {
-    db.User.create(req.body).then(function(dbUser) {
-      res.json(dbUser);
-    });
-  });
-
-  app.delete("/api/users/:id", function(req, res) {
-    db.User.destroy({ where: { id: req.params.id } }).then(function(dbUser) {
-      res.json(dbUser);
-    });
-  });
-
+  // Using the passport.authenticate middleware with our local strategy.
+  // If the user has valid login credentials, send them to the members page.
+  // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
   });

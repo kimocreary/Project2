@@ -1,49 +1,53 @@
 <!DOCTYPE html>
-<html lang="en"></html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="../../public/assets/css/styles.css" rel="stylesheet">
-  <title>Project Management System</title>
-</head>
-<body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header"><a class="navbar-brand" href="/logout">Log Out</a><a href="/login">Employee Sign-in</a></div>
-    </div>
-    <main>
-      <h2>Add User
-        <form class="signup">
-          <div class="form-group">
-            <!-- create email for new user-->
-            <label for="firstName">First Name:</label>
-            <input class="form-control" id="firstName-input" type="text" placeholder="First Name">
-          </div>
-          <div class="form-group">
-            <!-- create email for new user-->
-            <label for="lastName">Last Name:</label>
-            <input class="form-control" id="lastName-input" type="text" placeholder="Last Name">
-          </div>
-          <div class="form-group">
-            <!-- create email for new user-->
-            <label for="addEmail">Email address:</label>
-            <input class="form-control" id="email-input" type="email" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <!-- generate password for user-->
-            <label for="addPassword">Password:</label>
-            <input class="form-control" id="password-input" type="password" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <!-- position-->
-            <label for="addPosition">Position:</label>
-            <input class="form-control" id="position-input" type="text" placeholder="Position">
-          </div>
-        </form>
-        <div class="alert alert-danger" id="alert" style="display: none" role="alert"></div><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span><span class="msg"></span>
-        <button class="btn btn-default" type="submit">Sign Up</button>
-      </h2>
-    </main>
-  </nav>
-  <footer id="sticky-footer"><small>Copyright &copy; Taskr</small></footer><script src="../../bundle.js"></script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    <link href="/public/assets/css/styles.css" rel="stylesheet">
+    <title>Project Management System</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header"><a class="navbar-brand" href="/logout">Log Out</a><a href="/login">Employee Sign-in</a></div>
+      </div>
+    </nav>
+    <h2>Add User
+      <form class="signup">
+        <div class="form-group">
+          <!-- create email for new user-->
+          <label for="firstName">First Name:</label>
+          <input class="form-control" id="firstName-input" type="text" placeholder="First Name">
+        </div>
+        <div class="form-group">
+          <!-- create email for new user-->
+          <label for="lastName">Last Name:</label>
+          <input class="form-control" id="lastName-input" type="text" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+          <!-- create email for new user-->
+          <label for="addEmail">Email address:</label>
+          <input class="form-control" id="email-input" type="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <!-- generate password for user-->
+          <label for="addPassword">Password:</label>
+          <input class="form-control" id="password-input" type="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <!-- position-->
+          <label for="addPosition">Position:</label>
+          <input class="form-control" id="position-input" type="text" placeholder="Position">
+        </div>
+      </form>
+      <div class="alert alert-danger" id="alert" style="display: none" role="alert"></div><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><span class="sr-only">Error:</span><span class="msg"></span>
+      <button class="btn btn-default" type="submit">Sign Up</button>
+    </h2>
+    <footer id="sticky-footer"><small>Copyright &copy; Taskr</small></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/public/assets/javascript/login.js"></script>
+    <script type="text/javascript" src="/public/assets/javascript/signup.js"></script>
+    <script type="text/javascript" src="/public/assets/javascript/members.js"></script>
+  </body>
+</html>

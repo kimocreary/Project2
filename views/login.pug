@@ -1,14 +1,18 @@
 extends ./layouts/template.pug
 
-block content
-  h2 Login Form
-  form.login
-    .form-group
-      // create email for new user
-      label(for='addEmail') Email address
-      input#email-input.form-control(type='email' placeholder='Email')
-    .form-group
-      // generate password for user
-      label(for='addPassword') Password
-      input#password-input.form-control(type='password' placeholder='Password')
-    button.btn.btn-primary(type='submit') Login
+block main
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        h2 Login Form
+        form.login
+          .form-group
+            label(for='addEmail') Email address
+            input#email-input.form-control(type='email' placeholder='Email')
+          .form-group
+            label(for='addPassword') Password
+            input#password-input.form-control(type='password' placeholder='Password')
+          button.btn.btn-primary(type='submit') Login
+        br
+        p Or sign up
+          a(href="/") here

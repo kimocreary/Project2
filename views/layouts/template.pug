@@ -1,12 +1,8 @@
 doctype html
 html(lang="en")
-head
   include ../includes/head.pug
-body
-  nav.navbar.navbar-default
+  body
     include ../includes/navbar.pug
-    main
-      block content
-  footer#sticky-footer
+    block main
     include ../includes/footer.pug
-  include ../includes/scripts.pug
+    include ../includes/scripts.pug

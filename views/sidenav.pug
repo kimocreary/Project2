@@ -1,0 +1,26 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel="stylesheet" type="text/css" href="/public/assets/css/sidenav.css")
+
+body
+  #mySidenav.sidenav
+    a.closebtn(href='javascript:void(0)' onclick='closeNav()') &times;
+    a(href='#') About
+    a(href='#') Services
+    a(href='#') Clients
+    a(href='#') Contact
+  #main
+    h2 Sidenav Push Example
+    p
+      | Click on the element below to open the side navigation menu, and push this content to the right.
+    span(style='font-size:30px;cursor:pointer' onclick='openNav()') &#x2630; open
+  script.
+    function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    }
+    function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    }
