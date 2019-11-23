@@ -45,5 +45,18 @@ module.exports = function(app) {
         id: req.user.id
       });
     }
+  }
+  );
+  app.post("/api/tasks", function(req, res) {
+    console.log(req.body, "req body");
+    db.Task.create({
+      task_description: req.body.taskName,
+      task_priority: req.body.priorityLevel,
+      target_date: req.body.expectedDueDate,
+      
+    }).then(function(dbTask) {
+      console.log(dbTask)
+    })
+
   });
 };

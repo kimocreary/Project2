@@ -10,6 +10,16 @@ $(document).ready(function() {
       var expectedDueDate = $("#expectedDate").val().trim()
       console.log("values are entered", taskName, priorityLevel, expectedDueDate)
     
+      const taskData = {
+        taskName,
+        priorityLevel,
+        expectedDueDate,
+      }
+      console.log("task data", taskData)
+
+      $.post("/api/tasks", taskData, function() {
+        console.log('this worked!')
+      })
       // $("#tasks").empty();
       // $(".submit-button").removeClass("active");
       // $(this).addClass("active");
