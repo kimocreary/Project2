@@ -2,9 +2,12 @@ extends ./layouts/template.pug
 include ./mixins/mixins.pug
 
 block main
-  h1 Welcome #{name}
-  +card("TO DO", "hey", "yo")
-  +card("IN PROGRESS", "hey", "yo")
-  +card("DONE", "hey", "yo")
+  .d-flex.flex-row.bd-highlight.mb-3
+    .p-2.bd-highlight
+      +card("TO DO")
+    .p-2.bd-highlight
+      +card("IN PROGRESS")
+    .p-2.bd-highlight
+      +card("DONE")
   +modal("login")
   +modal("signup")

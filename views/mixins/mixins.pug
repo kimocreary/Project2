@@ -1,9 +1,11 @@
-mixin card(title, text, link)
-  .card&attributes(attributes)
+mixin card(title)
+  .card(id=title)&attributes(attributes)
     h5.card-header= title
     .card-body
-      p.card-text= text
-      a.btn.btn-primary(href="/"+link)= link
+
+mixin flex()
+  .d-flex.flex-row.bd-highlight.mb-3
+    .p-2.bd-highlight= +card(title)
 
 //- Add icon
 mixin icon(iconName)
@@ -12,7 +14,7 @@ mixin icon(iconName)
 //- add icon with drop down
 mixin iconDropdown(iconName, ...links)
   .dropdown
-    +icon(iconName)(data-toggle="dropdown")
+    +icon(iconName)(id=iconName data-toggle="dropdown")
     .dropdown-menu
       each link in links
         a.dropdown-item(href="/"+link)= link

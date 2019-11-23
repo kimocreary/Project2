@@ -3,5 +3,8 @@ include ../mixins/mixins.pug
 nav.navbar.navbar-expand-lg.narbar-light.bg-light
   .container-fluid
     .navbar-header
-      +iconBtn("menu", "login")
-      +iconDropdown("account_circle", "login", "members", "signup")
+      .d-flex.flex-row.bd-highlight.mb-3
+        .p-2.bd-highlight
+          +iconBtn("menu", "login")
+        .p-2.bd-highlight
+          +iconDropdown("account_circle", "login", "members", "signup")

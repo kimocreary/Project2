@@ -16,11 +16,17 @@
           <nav class="navbar navbar-expand-lg narbar-light bg-light">
             <div class="container-fluid">
               <div class="navbar-header">
-                          <button class="btn btm-btn-icon"><a href="/login"><i class="material-icons">menu</i></a></button>
-                          <div class="dropdown"><i class="material-icons" data-toggle="dropdown">account_circle</i>
-                            <div class="dropdown-menu"><a class="dropdown-item" href="/login">login</a><a class="dropdown-item" href="/members">members</a><a class="dropdown-item" href="/signup">signup</a>
-                            </div>
-                          </div>
+                <div class="d-flex flex-row bd-highlight mb-3">
+                  <div class="p-2 bd-highlight">
+                              <button class="btn btm-btn-icon"><a href="/login"><i class="material-icons">menu</i></a></button>
+                  </div>
+                  <div class="p-2 bd-highlight">
+                              <div class="dropdown"><i class="material-icons" id="account_circle" data-toggle="dropdown">account_circle</i>
+                                <div class="dropdown-menu"><a class="dropdown-item" href="/login">login</a><a class="dropdown-item" href="/members">members</a><a class="dropdown-item" href="/signup">signup</a>
+                                </div>
+                              </div>
+                  </div>
+                </div>
               </div>
             </div>
           </nav>
@@ -31,7 +37,7 @@
           <main>
             <div class="row">
               <div class="col-1">
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"><a class="nav-link" id="v-pills-val-tab" data-toggle="pill" href="#v-pills-Dashboard" role="tab" aria-controls="v-pills-Dashboard" aria-selected="true">Dashboard</a><a class="nav-link" id="v-pills-val-tab" data-toggle="pill" href="#v-pills-Projects" role="tab" aria-controls="v-pills-Projects" aria-selected="true">Projects</a><a class="nav-link" id="v-pills-val-tab" data-toggle="pill" href="#v-pills-Account" role="tab" aria-controls="v-pills-Account" aria-selected="true">Account</a>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"><a class="nav-link" id="v-pills-val-tab" data-toggle="pill" href="#v-pills-Dashboard" role="tab" aria-controls="v-pills-Dashboard" aria-selected="true">Dashboard</a><a class="nav-link" id="v-pills-val-tab" data-toggle="pill" href="#v-pills-Stacks" role="tab" aria-controls="v-pills-Stacks" aria-selected="true">Stacks</a><a class="nav-link" id="v-pills-val-tab" data-toggle="pill" href="#v-pills-Account" role="tab" aria-controls="v-pills-Account" aria-selected="true">Account</a>
                 </div>
               </div>
               <div class="col-11">
@@ -58,7 +64,7 @@
           <nav class="navbar navbar-expand-lg narbar-light bg-light" id="footer">
             <div class="container-fluid">
               <div class="navbar-header">
-                <p class="text-center">Copyright &copy; Taskr</p>
+                <p>Copyright &copy; Taskr</p>
               </div>
             </div>
           </nav>
@@ -68,8 +74,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/public/assets/javascript/login.js"></script>
-    <script type="text/javascript" src="/public/assets/javascript/signup.js"></script>
-    <script type="text/javascript" src="/public/assets/javascript/members.js"></script>
+    <script type="text/javascript" src="./assets/javascript/login.js"></script>
+    <script type="text/javascript" src="./assets/javascript/signup.js"></script>
+    <script type="text/javascript" src="./assets/javascript/members.js"></script>
   </body>
 </html>

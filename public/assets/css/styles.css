@@ -6,8 +6,7 @@ main {
 
 .card {
   width: 18rem;
-  height: 18rem;
-  margin: 1rem; }
+  height: 27rem; }
 
 form.signup, form.login {
   margin-top: 50px; }
@@ -16,3 +15,6 @@ form.signup, form.login {
   position: fixed;
   bottom: 0;
   width: 100%; }
+
+#account_circle {
+  float: right; }
