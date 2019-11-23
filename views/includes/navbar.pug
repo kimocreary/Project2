@@ -1,4 +1,10 @@
-.container-fluid
-  .navbar-header
-    a.navbar-brand(href='/logout')
-      | Log Out
+include ../mixins/mixins.pug
+
+nav.navbar.navbar-expand-lg.narbar-light.bg-light
+  .container-fluid
+    .navbar-header
+      .d-flex.flex-row.bd-highlight.mb-3
+        .p-2.bd-highlight
+          +iconBtn("menu", "login")
+        .p-2.bd-highlight
+          +iconDropdown("account_circle", "login", "members", "signup")

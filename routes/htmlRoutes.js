@@ -20,7 +20,6 @@ module.exports = function(app) {
       res.redirect("/members");
     }
     res.sendFile(path.join(__dirname, "../public/signup.html"));
-
   });
 
   // Load example page and pass in an example by id
@@ -55,5 +54,4 @@ module.exports = function(app) {
   // app.get("*", function(req, res) {
   //   res.render("404");
   // });
-
 };

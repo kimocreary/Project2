@@ -1,16 +1,15 @@
 extends ./layouts/template.pug
 
-block content
+block main
   h2 Login Form
   form.login
     .form-group
-      label(for='exampleInputEmail1') Email address
+      label(for='addEmail') Email address
       input#email-input.form-control(type='email' placeholder='Email')
     .form-group
-      label(for='exampleInputPassword1') Password
+      label(for='addPassword') Password
       input#password-input.form-control(type='password' placeholder='Password')
-    button.btn.btn-default(type='submit') Login
+    button.btn.btn-primary(type='submit') Login
   br
-  p
-    | Or sign up
-    a(href='/') here
+  p Or sign up
+    a(href="/") here
