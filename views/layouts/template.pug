@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  include ../includes/head.pug
+  body
+    .container-fluid
+      .row.align-top
+        .col
+          include ../includes/navbar.pug
+      .row.align-middle
+        .col
+          main
+            .row
+              .col-1
+                include ../includes/sidenav.pug
+              .col-11
+                block main
+      .row.align-bottom
+        .col
+          include ../includes/footer.pug
+    include ../includes/scripts.pug
+

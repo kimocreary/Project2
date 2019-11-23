@@ -1,0 +1,30 @@
+extends ./layouts/template.pug
+
+block main
+  h2 Add User
+    form.signup
+      .form-group
+        // create email for new user
+        label(for='firstName') First Name:
+        input#firstName-input.form-control(type='text' placeholder='First Name')
+      .form-group
+        // create email for new user
+        label(for='lastName') Last Name:
+        input#lastName-input.form-control(type='text' placeholder='Last Name')
+      .form-group
+        // create email for new user
+        label(for='addEmail') Email address:
+        input#email-input.form-control(type='email' placeholder='Email')
+      .form-group
+        // generate password for user
+        label(for='addPassword') Password:
+        input#password-input.form-control(type='password' placeholder='Password')
+      .form-group
+        // position
+        label(for='addPosition') Position:
+        input#position-input.form-control(type='text' placeholder='Position')
+    #alert.alert.alert-danger(style='display: none' role='alert')
+    span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+    span.sr-only Error:
+    span.msg
+    button.btn.btn-default(type='submit') Sign Up
