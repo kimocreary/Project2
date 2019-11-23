@@ -1,11 +1,10 @@
 {
-
   "name": "Taskr",
   "version": "1.0.0",
   "description": "project management system",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
