@@ -53,10 +53,27 @@ module.exports = function(app) {
       task_description: req.body.taskName,
       task_priority: req.body.priorityLevel,
       target_date: req.body.expectedDueDate,
-      
     }).then(function(dbTask) {
       console.log(dbTask)
     })
-
   });
+  app.get("/api/tasks", function(req, res) {
+    db.Task.findAll({})
+    .then(function(dbTask){
+      console.log(dbTask)
+      return(dbTask);
+    });
+  })
+  app.put("/api/tasks", function(req, res){
+    db.Task.update(req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      })
+      .then(function(dbTask){
+        res.json(dbTask);
+      })
+  })
 };
+
