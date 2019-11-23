@@ -1,4 +1,7 @@
+include ../mixins/mixins.pug
+
 nav.navbar.navbar-expand-lg.narbar-light.bg-light
   .container-fluid
     .navbar-header
-      include user-dropdown.pug
+      +iconBtn("menu", "login")
+      +iconDropdown("account_circle", "login", "members", "signup")
