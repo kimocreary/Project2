@@ -7,15 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
+  
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
   <!-- https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> 
-  <link rel="stylesheet" href="assets/style.css" />
-  <script type="text/javascript" src="assets/javascript/task.js"></script>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+
 </head>
 
 <body>
@@ -59,7 +58,7 @@
             <label for="expectedDate">Expected Due Date</label>
             <input type="text" class="form-control" id="expectedDate" placeholder="mm/dd/yyy">
           </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="developer">Developer Name</label>
           <input type="text" class="form-control" id="developerName" placeholder="John Smith">
         </div>
@@ -74,13 +73,14 @@
          </div>
           <label for="completionDate">Date Completed</label>
           <input type="text" class="form-control" id="completionDate" placeholder="5">
-        </div>
+        </div> -->
 
         <button type="submit" id="submitbutton" class="btn btn-primary">Submit</button>
       </form>
   </div>
 </div>
-  <script src="assets/app.js"></script>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+<script type="text/javascript" src="assets/javascript/task.js"></script>
 </html>
