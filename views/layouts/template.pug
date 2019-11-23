@@ -1,15 +1,21 @@
 doctype html
 html(lang="en")
-  head
-    include ../includes/head.pug
-  body.container-fluid
-    nav.navbar.navbar-default
-      include ../includes/navbar.pug
-    main
-      .container
-        .row
-          .col-md-6.col-md-offset-3
-            block content
-    footer#sticky-footer
-      include ../includes/footer.pug
+  include ../includes/head.pug
+  body
+    .container-fluid
+      .row.align-top
+        .col
+          include ../includes/navbar.pug
+      .row.align-middle
+        .col
+          main
+            .row
+              .col-1
+                include ../includes/sidenav.pug
+              .col-11
+                block main
+      .row.align-bottom
+        .col
+          include ../includes/footer.pug
     include ../includes/scripts.pug
+

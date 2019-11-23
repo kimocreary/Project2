@@ -1,86 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+    <!-- https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script type="text/javascript" src="assets/javascript/task.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
-  <!-- https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> 
-  <link rel="stylesheet" href="assets/style.css" />
-  <script type="text/javascript" src="assets/javascript/task.js"></script>
-</head>
-
-<body>
-
-
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4">TaskR </h1>
-      <p class="lead">Collaborating Made Easy</p>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">TaskR</h1>
+        <p class="lead">Collaborating Made Easy</p>
+      </div>
+      <div class="container">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Task</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Target Date</th>
+              <th scope="col">Developer</th>
+              <th scope="col">Notes</th>
+              <th scope="col">Developer Due Date</th>
+              <th scope="col">Completion Date</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
     <div class="container">
-      <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Task</th>
-            <th scope="col">Priority</th>
-            <th scope="col">Target Date</th>
-            <th scope="col">Developer</th>
-            <th scope="col">Notes</th>
-            <th scope="col">Developer Due Date</th>
-            <th scope="col">Completion Date</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="container">
-    <div class="border border-primary">
-      <form>
-        <div class="form-group">
-          <label for="taskName">Task</label>
-          <input type="text" class="form-control" id="taskName"  placeholder="What task needs to get done?">
-        </div>
-        <div class="form-group">
+      <div class="border border-primary">
+        <form>
+          <div class="form-group">
+            <label for="taskName">Task</label>
+            <input
+              type="text"
+              class="form-control"
+              id="taskName"
+              placeholder="What task needs to get done?"
+            />
+          </div>
+          <div class="form-group">
             <label for="developer">Priority</label>
-            <input type="text" class="form-control" id="priorityLevel" placeholder="1-10">
+            <input
+              type="text"
+              class="form-control"
+              id="priorityLevel"
+              placeholder="1-10"
+            />
           </div>
           <div class="form-group">
             <label for="expectedDate">Expected Due Date</label>
-            <input type="text" class="form-control" id="expectedDate" placeholder="mm/dd/yyy">
+            <input
+              type="text"
+              class="form-control"
+              id="expectedDate"
+              placeholder="mm/dd/yyy"
+            />
           </div>
-        <div class="form-group">
-          <label for="developer">Developer Name</label>
-          <input type="text" class="form-control" id="developerName" placeholder="John Smith">
-        </div>
-        <div class="form-group">
-          <label for="developerNotes">Developer Notes</label>
-          <input type="text" class="form-control" id="developerNotes" placeholder="Feedback on requested task">
-        </div>
-        <div class="form-group">
-         <div class="form-group">
-             <label for="developerDate">Developer ETA</label>
-             <input type="text" class="form-control" id="developeDate" placeholder="mm/dd/yyyy">
-         </div>
-          <label for="completionDate">Date Completed</label>
-          <input type="text" class="form-control" id="completionDate" placeholder="5">
-        </div>
+          <div class="form-group">
+            <label for="developer">Developer Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="developerName"
+              placeholder="John Smith"
+            />
+          </div>
+          <div class="form-group">
+            <label for="developerNotes">Developer Notes</label>
+            <input
+              type="text"
+              class="form-control"
+              id="developerNotes"
+              placeholder="Feedback on requested task"
+            />
+          </div>
+          <div class="form-group">
+            <div class="form-group">
+              <label for="developerDate">Developer ETA</label>
+              <input
+                type="text"
+                class="form-control"
+                id="developeDate"
+                placeholder="mm/dd/yyyy"
+              />
+            </div>
+            <label for="completionDate">Date Completed</label>
+            <input
+              type="text"
+              class="form-control"
+              id="completionDate"
+              placeholder="5"
+            />
+          </div>
 
-        <button type="submit" id="submitbutton" class="btn btn-primary">Submit</button>
-      </form>
-  </div>
-</div>
-  <script src="assets/app.js"></script>
-</body>
-
+          <button type="submit" id="submitbutton" class="btn btn-primary">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="assets/app.js"></script>
+  </body>
 </html>
