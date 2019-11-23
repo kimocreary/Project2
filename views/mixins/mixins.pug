@@ -1,0 +1,25 @@
+mixin card(title, text, link)
+  .card(style="width: 18rem")
+    h5.card-header= title
+    .card-body
+      p.card-text= text
+      a.btn.btn-primary(href="#")= link
+
+mixin icon(iconName)
+  i.material-icons&attributes(attributes)= iconName
+
+mixin modalBtn(modalName)
+  button.btn.btn-primary(type="button" data-toggle="modal" data-target="#"+modalName) launch
+
+mixin modalMaker(modalName)
+  .modal.fade(id=modalName tabindex="-1" role="dialog" aria-labelledby= modalName+"Title" aria-hidden="true")
+    .modal-dialog.modal-dialog-centered(role="document")
+      .modal-content
+        .modal-header
+          h5.modal-title(id=modalName+"Title")= modalName
+          button.close(type="button" data-dismiss="modal" aria-label="Close")
+            span(aria-hidden="true") &times;
+        .modal-body
+        .modal-footer
+          button.btn.btn-secondary(type="button" data-dismiss="modal") Close
+          button.btn.btn-primary Save

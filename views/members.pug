@@ -1,8 +1,8 @@
 extends ./layouts/template.pug
+include ./mixins/mixins.pug
 
 block main
-  main
-    .container-fluid
-    h1 Welcome #{name}
-      span.member-name
-
+  h1 Welcome #{name}
+  +card("hello", "hey", "yo")
+  +modalBtn("test")
+  +modalMaker("test")

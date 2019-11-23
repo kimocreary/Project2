@@ -3,42 +3,69 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="/public/assets/css/sidenav.css" rel="stylesheet">
     <link href="/public/assets/css/styles.css" rel="stylesheet">
     <title>Taskr</title>
   </head>
   <body>
-    <nav class="navbar navbar-default justify-content-end">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <div class="dropdown"><i class="material-icons btn btn-secondary dropdown-toggle" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">account_circle</i>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item" href="#">Action</a></div>
-          </div>
+    <div class="container-fluid">
+      <div class="row align-top">
+        <div class="col">
+          <nav class="navbar navbar-expand-lg narbar-light bg-light">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <div class="dropdown"><i class="material-icons" data-toggle="dropdown">account_circle</i>
+                  <div class="dropdown-menu"><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Action</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
         </div>
       </div>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-          <h2>Login Form</h2>
-          <form class="login">
-            <div class="form-group">
-              <label for="addEmail">Email address</label>
-              <input class="form-control" id="email-input" type="email" placeholder="Email">
+      <div class="row align-middle">
+        <div class="col">
+          <main>
+            <div class="row">
+              <div class="col-1">
+                <button class="btn btm-btn-icon"><i class="material-icons">menu</i>
+                </button>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"><a class="nav-link" id="v-pills-val-tab" data-toggle="pill" href="#v-pills-Dashboard" role="tab" aria-controls="v-pills-Dashboard" aria-selected="true">Dashboard</a><a class="nav-link" id="v-pills-val-tab" data-toggle="pill" href="#v-pills-Projects" role="tab" aria-controls="v-pills-Projects" aria-selected="true">Projects</a><a class="nav-link" id="v-pills-val-tab" data-toggle="pill" href="#v-pills-Account" role="tab" aria-controls="v-pills-Account" aria-selected="true">Account</a>
+                </div>
+              </div>
+              <div class="col-11">
+                <h2>Login Form</h2>
+                <form class="login">
+                  <div class="form-group">
+                    <label for="addEmail">Email address</label>
+                    <input class="form-control" id="email-input" type="email" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <label for="addPassword">Password</label>
+                    <input class="form-control" id="password-input" type="password" placeholder="Password">
+                  </div>
+                  <button class="btn btn-primary" type="submit">Login</button>
+                </form><br>
+                <p>Or sign up<a href="/">here</a></p>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="addPassword">Password</label>
-              <input class="form-control" id="password-input" type="password" placeholder="Password">
+          </main>
+        </div>
+      </div>
+      <div class="row align-bottom">
+        <div class="col">
+          <nav class="navbar navbar-expand-lg narbar-light bg-light">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <p class="text-center">Copyright &copy; Taskr</p>
+              </div>
             </div>
-            <button class="btn btn-primary" type="submit">Login</button>
-          </form><br>
-          <p>Or sign up<a href="/">here</a></p>
+          </nav>
         </div>
       </div>
     </div>
-    <footer id="sticky-footer"><small>Copyright &copy; Taskr</small></footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>

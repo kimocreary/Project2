@@ -1,0 +1,8 @@
+include ../mixins/mixins.pug
+
+button.btn.btm-btn-icon
+  +icon("menu")()
+
+.nav.flex-column.nav-pills#v-pills-tab(role="tablist" aria-orientation="vertical")
+  each val, index in ['Dashboard', 'Projects', 'Account']
+    a.nav-link#v-pills-val-tab(data-toggle="pill" href="#v-pills-"+val role="tab" aria-controls="v-pills-"+val aria-selected="true")= val

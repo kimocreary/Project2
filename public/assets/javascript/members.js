@@ -1,3 +1,5 @@
+var pug = require("pug");
+
 $(document).ready(function() {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
@@ -5,14 +7,8 @@ $(document).ready(function() {
     $(".member-name").text(data.email);
   });
 
-  var pug = require("pug");
-
-  // Compile the source code
-  var compiledFunction = pug.compileFile("/views/layouts/template.pug");
-
-  // Render a set of data
   console.log(
-    compiledFunction({
+    pug.renderFile("/views/members.pug", {
       name: "Timothy"
     })
   );

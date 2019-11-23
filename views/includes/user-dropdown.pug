@@ -1,4 +1,7 @@
+include ../mixins/mixins.pug
+
 .dropdown
-  i.material-icons.btn.btn-secondary.dropdown-toggle#dropdownMenuButton(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") account_circle
-  .dropdown-menu(aria-labelledby="dropdownMenuButton")
-    a.dropdown-item(href="#") Action
+  +icon("account_circle")(data-toggle="dropdown")
+  .dropdown-menu
+    -for(var i = 0; i < 3; i++)
+      a.dropdown-item(href="#") Action
