@@ -1,9 +1,9 @@
 mixin card(title, text, link)
-  .card(style="width: 18rem")
+  .card&attributes(attributes)
     h5.card-header= title
     .card-body
       p.card-text= text
-      a.btn.btn-primary(href="#")= link
+      a.btn.btn-primary(href="/"+link)= link
 
 //- Add icon
 mixin icon(iconName)
@@ -59,15 +59,24 @@ mixin list(name, ...items)
     each item in items
       li= item
 
+mixin tableHeader(cols)
+  each col in cols
+    th(scope="col")= col
+
+mixin tableRows(rows)
+  each row in rows
+    th(scope="row")= row
+    +tableData(datas)
+
+mixin tableData(datas)
+  each data in datas
+    td= data
+
 mixin table(name, cols, rows, datas)
-  table.table(id=name)
+  table.table.table-striped.table-borderless(id=name)
     thead
       tr
-        each col in cols
-          th(scope="col")= col
+        +tableHeader(cols)
     tbody
-      each row in rows
-        tr
-          th(scope="row")= row
-          each data in datas
-            td= data
+      tr
+        +tableRows(rows)

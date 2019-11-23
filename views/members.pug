@@ -3,10 +3,8 @@ include ./mixins/mixins.pug
 
 block main
   h1 Welcome #{name}
-  +card("hello", "hey", "yo")
+  +card("TO DO", "hey", "yo")
+  +card("IN PROGRESS", "hey", "yo")
+  +card("DONE", "hey", "yo")
   +modal("login")
   +modal("signup")
-  - var cols = ["#", "First", "Last", "Handle"];
-  - var rows = ["1", "mark", "Otto", "to"];
-  - var data = ["1", "mark", "Otto", "to"];
-  +table("test", cols, rows, data)
