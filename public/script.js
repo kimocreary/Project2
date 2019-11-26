@@ -2,7 +2,7 @@
 
         // AN ARRAY OF JSON OBJECTS WITH VALUES.
         this.myBooks = [
-            { ID: '1', Task: 'Task 1', Priority: '1', Date: '2019/02/02' }
+            { ID: '1', Task: 'Task 1', Priority: '1', TargetDate: '', Developer:'', Notes: '', Date: '2019/02/02' }
         ]
 
         this.col = [];
