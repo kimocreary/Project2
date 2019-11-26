@@ -1,6 +1,15 @@
 html,
-body,
-main {
+
+
+body {
+  background-image: url("https://cdn.dribbble.com/users/170283/screenshots/1908838/gears-800x600.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+
+  main {
+  
   width: 100%;
   height: 100%; }
 
@@ -12,6 +21,7 @@ form.signup, form.login {
   margin-top: 50px; }
 
 #footer {
+  background-color: #063053;
   position: fixed;
   bottom: 0;
   width: 100%; }
