@@ -1,7 +1,7 @@
 mixin card(title)
-  .card(id=title)&attributes(attributes)
-    h5.card-header= title
-    .card-body
+  .card(id= title)&attributes(attributes)
+    .card-title= title
+      .card-body.overflow-auto
 
 mixin flex()
   .d-flex.flex-row.bd-highlight.mb-3
@@ -24,6 +24,9 @@ mixin iconBtn(iconName, link)
     a(href="/"+link)
       +icon(iconName)
 
+mixin submitBtn()
+  button.btn.btn-primary.btn-large.btn-block(type="submit") submit
+
 mixin modal(modalName)
   button.btn.btn-primary(type="button" data-toggle="modal" data-target="#"+modalName) launch
   .modal.fade(id=modalName tabindex="-1" role="dialog" aria-labelledby=modalName+"Title" aria-hidden="true")
@@ -34,27 +37,24 @@ mixin modal(modalName)
           button.close(type="button" data-dismiss="modal" aria-label="Close")
             span(aria-hidden="true") &times;
         .modal-body
-          //- +form()
         .modal-footer
           button.btn.btn-primary Submit
 
-//- mixin form(name, ...items)
-//-   h2= name
-//-   form
-//-     each item in items
-//-       .form-group
-//-         label(for="test") test
-//-         input(id=)
-//-     .form-group
-//-     label(for='addEmail') Email address
-//-     input#email-input.form-control(type='email' placeholder='Email')
-//-     .form-group
-//-     label(for='addPassword') Password
-//-     input#password-input.form-control(type='password' placeholder='Password')
-//-     button.btn.btn-primary(type='submit') Login
-//-   br
-//-   p Or sign up
-//-     a(href="/") here
+mixin tab(pane)
+  .nav.flex-column.nav-pills#v-pills-tab(role="tablist" aria-orientation="vertical")
+    - for(var i = 0; i < pane.length; i++)
+        a.nav-link(id="v-pills-"+pane[i]+"-tab" data-toggle="pill" href="#v-pills-"+pane[i] role="tab" aria-controls="v-pills-"+pane[i] aria-selected="false")= pane[i]
+  .tab-content#v-pill-tabContent
+    - for(var i = 0; i < pane.length; i++)
+        .tab-pane(id="v-pills"+pane[i] role="tabpanel" aria-labelledby="v-pills-"+pane[i]+"-tab")
+
+mixin form(name, ...items)
+  form(id = name)
+  each item in items
+    .form-group
+      label(for= item)= item
+      input.form-control(id=item+"-input" type= item)
+  +submitBtn()
 
 mixin list(name, ...items)
   ul
@@ -62,6 +62,8 @@ mixin list(name, ...items)
       li= item
 
 mixin tableHeader(cols)
+  thead
+      tr
   each col in cols
     th(scope="col")= col
 
@@ -76,9 +78,7 @@ mixin tableData(datas)
 
 mixin table(name, cols, rows, datas)
   table.table.table-striped.table-borderless(id=name)
-    thead
-      tr
-        +tableHeader(cols)
+    +tableHeader(cols)
     tbody
       tr
         +tableRows(rows)

@@ -1,4 +1,26 @@
-nav.navbar.navbar-expand-lg.narbar-light.bg-light#footer
-  .container-fluid
-    .navbar-header
-      p Copyright &copy; Taskr
+.footer.pt-5.pb-4.footer-light#footer-main
+  .row.text-center.text-sm-left.align-items-sm-center
+    .col-sm-6
+      p.text-sm.mb-0
+        |
+          © 2019
+
+        a.h6.text-sm(href='https://webpixels.io' target='_blank') Webpixels
+        | . All rights reserved.
+
+    .col-sm-6.mb-md-0
+      ul.nav.justify-content-center.justify-content-md-end
+        li.nav-item.dropdown.border-right
+          a.nav-link(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            img(alt='Image placeholder' src='./assets/img/icons/flags/us.svg')
+            span.h6.text-sm.mb-0 En
+          .dropdown-menu.dropdown-menu-sm.dropdown-menu-right
+            a.dropdown-item(href='#')
+              img.mr-2(alt='Image placeholder' src='./assets/img/icons/flags/es.svg')
+              | Spanish
+        li.nav-item
+          a.nav-link(href='#') Support
+        li.nav-item
+          a.nav-link(href='#') Terms
+        li.nav-item
+          a.nav-link.pr-0(href='#') Privacy

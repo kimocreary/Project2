@@ -1,10 +1,472 @@
-include ../mixins/mixins.pug
-
-nav.navbar.navbar-expand-lg.narbar-light.bg-light
+nav.navbar.navbar-main.navbar-expand-lg.navbar-dark.bg-primary.navbar-border#navbar-main
   .container-fluid
-    .navbar-header
-      .d-flex.flex-row.bd-highlight.mb-3
-        .p-2.bd-highlight
-          +iconBtn("menu", "login")
-        .p-2.bd-highlight
-          +iconDropdown("account_circle", "login", "members", "signup")
+    //  Brand + Toggler (for mobile devices)
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbar-main-collapse' aria-controls='navbar-main-collapse' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    //  User's navbar
+    .navbar-user.d-lg-none.ml-auto
+      ul.navbar-nav.flex-row.align-items-center
+        li.nav-item
+          a.nav-link.nav-link-icon.sidenav-toggler(href='#' data-action='sidenav-pin' data-target='#sidenav-main')
+            i.fas.fa-bars
+        li.nav-item
+          a.nav-link.nav-link-icon(href='#' data-action='omnisearch-open' data-target='#omnisearch')
+            i.fas.fa-search
+        li.nav-item.dropdown.dropdown-animate
+          a.nav-link.nav-link-icon(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            i.fas.fa-bell
+          .dropdown-menu.dropdown-menu-right.dropdown-menu-lg.dropdown-menu-arrow.p-0
+            .py-3.px-3
+              h5.heading.h6.mb-0 Notifications
+            .list-group.list-group-flush
+              a.list-group-item.list-group-item-action(href='#')
+                .d-flex.align-items-center(data-toggle='tooltip' data-placement='right' data-title='2 hrs ago')
+                  div
+                    span.avatar.bg-primary.text-white.rounded-circle
+                  .flex-fill.ml-3
+                    .h6.text-sm.mb-0
+                      | Alex Michael
+                      small.float-right.text-muted 2 hrs ago
+                    p.text-sm.lh-140.mb-0.
+
+                      Some quick example text to build on the card title.
+
+              a.list-group-item.list-group-item-action(href='#')
+                .d-flex.align-items-center(data-toggle='tooltip' data-placement='right' data-title='3 hrs ago')
+                  div
+                    span.avatar.bg-warning.text-white.rounded-circle SW
+                  .flex-fill.ml-3
+                    .h6.text-sm.mb-0
+                      | Sandra Wayne
+                      small.float-right.text-muted 3 hrs ago
+                    p.text-sm.lh-140.mb-0.
+
+                      Some quick example text to build on the card title.
+
+              a.list-group-item.list-group-item-action(href='#')
+                .d-flex.align-items-center(data-toggle='tooltip' data-placement='right' data-title='5 hrs ago')
+                  div
+                    span.avatar.bg-info.text-white.rounded-circle JM
+                  .flex-fill.ml-3
+                    .h6.text-sm.mb-0
+                      | Jason Miller
+                      small.float-right.text-muted 5 hrs ago
+                    p.text-sm.lh-140.mb-0.
+
+                      Some quick example text to build on the card title.
+
+              a.list-group-item.list-group-item-action(href='#')
+                .d-flex.align-items-center(data-toggle='tooltip' data-placement='right' data-title='2 hrs ago')
+                  div
+                    span.avatar.bg-dark.text-white.rounded-circle MJ
+                  .flex-fill.ml-3
+                    .h6.text-sm.mb-0
+                      | Mike Thomson
+                      small.float-right.text-muted 2 hrs ago
+                    p.text-sm.lh-140.mb-0.
+
+                      Some quick example text to build on the card title.
+
+              a.list-group-item.list-group-item-action(href='#')
+                .d-flex.align-items-center(data-toggle='tooltip' data-placement='right' data-title='3 hrs ago')
+                  div
+                    span.avatar.bg-primary.text-white.rounded-circle RN
+                  .flex-fill.ml-3
+                    .h6.text-sm.mb-0
+                      | Richard Nixon
+                      small.float-right.text-muted 3 hrs ago
+                    p.text-sm.lh-140.mb-0.
+
+                      Some quick example text to build on the card title.
+
+            .py-3.text-center
+              a.link.link-sm.link--style-3(href='#') View all notifications
+        li.nav-item.dropdown.dropdown-animate
+          a.nav-link.pr-lg-0(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            span.avatar.avatar-sm.rounded-circle
+              img(alt='Image placeholder' src='./assets/img/theme/light/team-4-800x800.jpg')
+          .dropdown-menu.dropdown-menu-sm.dropdown-menu-right.dropdown-menu-arrow
+            h6.dropdown-header.px-0 Hi, Heather!
+            a.dropdown-item(href='./application/user/profile.html')
+              i.fas.fa-user
+              span My profile
+            a.dropdown-item(href='./application/account/settings.html')
+              i.fas.fa-cog
+              span Settings
+            a.dropdown-item(href='./application/account/billing.html')
+              i.fas.fa-credit-card
+              span Billing
+            a.dropdown-item(href='./application/shop/orders.html')
+              i.fas.fa-shopping-basket
+              span Orders
+            .dropdown-divider
+            a.dropdown-item(href='./application/authentication/login.html')
+              i.fas.fa-sign-out-alt
+              span Logout
+    //  Navbar nav
+    .collapse.navbar-collapse.navbar-collapse-fade#navbar-main-collapse
+      ul.navbar-nav.align-items-lg-center
+        //  Overview
+        li.nav-item.d-lg-none
+          a.nav-link(href='./index.html').
+
+            Overview
+
+        li.border-top.opacity-2.my-2
+        //  Home
+        li.nav-item
+          a.nav-link.pl-lg-0(href='./application/home.html').
+
+            Home
+
+        //  Application menu
+        li.nav-item.dropdown.dropdown-animate(data-toggle='hover')
+          a.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false').
+
+            Application
+
+          .dropdown-menu.dropdown-menu-arrow.p-lg-0
+            //  Top dropdown menu
+            .p-lg-4
+              .dropdown.dropdown-animate.dropdown-submenu(data-toggle='hover')
+                a.dropdown-item.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false').
+
+                  Project
+
+                .dropdown-menu
+                  a.dropdown-item(href='./application/project/card-listing.html').
+
+                    Card listing
+
+                  a.dropdown-item(href='./application/project/table-listing.html').
+
+                    Table listing
+
+                  a.dropdown-item(href='./application/project/overview.html').
+
+                    Overview
+
+                  a.dropdown-item(href='./application/project/create-new.html').
+
+                    Create new
+
+              .dropdown.dropdown-animate.dropdown-submenu(data-toggle='hover')
+                a.dropdown-item.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false').
+
+                  Task
+
+                .dropdown-menu
+                  a.dropdown-item(href='./application/task/table-listing.html').
+
+                    Table listing
+
+                  a.dropdown-item(href='./application/task/kanban-board.html').
+
+                    Kanban board
+
+                  a.dropdown-item(href='./application/task/create-new.html').
+
+                    Create new
+
+              .dropdown.dropdown-animate.dropdown-submenu(data-toggle='hover')
+                a.dropdown-item.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false').
+
+                  User
+
+                .dropdown-menu
+                  a.dropdown-item(href='./application/user/card-listing.html').
+
+                    Card listing
+
+                  a.dropdown-item(href='./application/user/table-listing.html').
+
+                    Table listing
+
+                  a.dropdown-item(href='./application/user/profile.html').
+
+                    Profile
+
+              .dropdown.dropdown-animate.dropdown-submenu(data-toggle='hover')
+                a.dropdown-item.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false').
+
+                  Authentication
+
+                .dropdown-menu
+                  a.dropdown-item(href='./application/authentication/login.html').
+
+                    Login
+
+                  a.dropdown-item(href='./application/authentication/register.html').
+
+                    Register
+
+                  a.dropdown-item(href='./application/authentication/recover.html').
+
+                    Recover
+
+              .dropdown.dropdown-animate.dropdown-submenu(data-toggle='hover')
+                a.dropdown-item.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false').
+
+                  Account
+
+                .dropdown-menu
+                  a.dropdown-item(href='./application/account/profile.html').
+
+                    Profile
+
+                  a.dropdown-item(href='./application/account/settings.html').
+
+                    Settings
+
+                  a.dropdown-item(href='./application/account/billing.html').
+
+                    Billing
+
+                  a.dropdown-item(href='./application/account/notifications.html').
+
+                    Notifications
+
+                  a.dropdown-item(href='./application/account/addresses.html').
+
+                    Addresses
+
+              .dropdown.dropdown-animate.dropdown-submenu(data-toggle='hover')
+                a.dropdown-item.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false').
+
+                  Shop
+
+                .dropdown-menu
+                  a.dropdown-item(href='./application/shop/card-listing.html').
+
+                    Card listing
+
+                  a.dropdown-item(href='./application/shop/table-listing.html').
+
+                    Table listing
+
+                  a.dropdown-item(href='./application/shop/product.html').
+
+                    Product
+
+                  a.dropdown-item(href='./application/shop/orders.html').
+
+                    Orders
+
+                  a.dropdown-item(href='./application/shop/order-description.html').
+
+                    Order description
+
+                  a.dropdown-item(href='./application/shop/cart.html').
+
+                    Cart
+
+                  a.dropdown-item(href='./application/shop/sellers.html').
+
+                    Sellers
+
+                  a.dropdown-item(href='./application/shop/invoices.html').
+
+                    Invoices
+
+                  a.dropdown-item(href='./application/shop/invoice-description.html').
+
+                    Invoice description
+
+              .dropdown.dropdown-animate.dropdown-submenu(data-toggle='hover')
+                a.dropdown-item.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false').
+
+                  Utility
+
+                .dropdown-menu
+                  a.dropdown-item(href='./application/utility/error-404.html').
+
+                    Error 404
+
+                  a.dropdown-item(href='./application/utility/error-500.html').
+
+                    Error 500
+
+                  a.dropdown-item(href='./application/utility/maintenance-mode.html').
+
+                    Maintenance mode
+
+                  a.dropdown-item(href='./application/utility/faq.html').
+
+                    Faq
+
+                  a.dropdown-item(href='./application/utility/topic.html').
+
+                    Topic
+
+            //  Bottom dropdown menu
+            .dropdown-menu-links.rounded-bottom.delimiter-top.p-lg-4
+              .row
+                .col-sm-6
+                  a.dropdown-item(href='./application/calendar.html') Calendar
+                  a.dropdown-item(href='./application/timeline.html') Timeline
+                .col-sm-6
+                  a.dropdown-item(href='./application/task/kanban-board.html') Kanban board
+                  a.dropdown-item(href='./application/google-map.html') Google map
+        li.nav-item
+          a.nav-link(href='./application/widgets.html').
+
+            Widgets
+
+        li.nav-item.dropdown.dropdown-animate(data-toggle='hover')
+          a.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Docs
+          .dropdown-menu.dropdown-menu-right.dropdown-menu-lg.dropdown-menu-arrow.p-0
+            ul.list-group.list-group-flush
+              li
+                a.list-group-item.list-group-item-action(href='./docs/index.html' role='button')
+                  .media.d-flex.align-items-center
+                    //  SVG icon
+                    figure(style='width: 50px;')
+                      img.svg-inject.img-fluid(alt='Image placeholder' src='./assets/img/icons/essential/detailed/DOC_File.svg' style='height: 50px;')
+                    //  Media body
+                    .media-body.ml-3
+                      h6.mb-1 Documentation
+                      p.mb-0 Awesome section examples for any scenario.
+              li
+                a.list-group-item.list-group-item-action(href='./docs/components/index.html' role='button')
+                  .media.d-flex.align-items-center
+                    //  SVG icon
+                    figure(style='width: 50px;')
+                      img.svg-inject.img-fluid(alt='Image placeholder' src='./assets/img/icons/essential/detailed/Mobile_UI.svg' style='height: 50px;')
+                    //  Media body
+                    .media-body.ml-3
+                      h6.mb-1 Components
+                      p.mb-0 Awesome section examples for any scenario.
+            .dropdown-menu-links.rounded-bottom.delimiter-top.p-4
+              .row
+                .col-sm-6
+                  a.dropdown-item(href='./docs/getting-started/installation.html') Installation
+                  a.dropdown-item(href='./docs/getting-started/file-structure.html') File structure
+                  a.dropdown-item(href='./docs/getting-started/build-tools.html') Build tools
+                  a.dropdown-item(href='./docs/getting-started/customization.html') Customization
+                .col-sm-6
+                  a.dropdown-item(href='./docs/getting-started/plugins.html') Using plugins
+                  a.dropdown-item(href='./docs/components/index.html') Components
+                  a.dropdown-item(href='./docs/plugins/animate.html') Plugins
+                  a.dropdown-item(href='./docs/support.html') Support
+        li.border-top.opacity-2.my-2
+        //  Docs menu
+        li.nav-item.d-lg-none
+          a.nav-link(href='./docs/index.html').
+
+            Docs
+
+        li.nav-item.d-lg-none
+          a.nav-link(href='./application/authentication/register.html').
+
+            Register
+
+        li.nav-item.d-lg-none
+          a.nav-link(href='./application/authentication/login.html').
+
+            Sign in
+
+      //  Right menu
+      ul.navbar-nav.ml-lg-auto.align-items-center.d-none.d-lg-flex
+        li.nav-item
+          a.nav-link.nav-link-icon.sidenav-toggler(href='#' data-action='sidenav-pin' data-target='#sidenav-main')
+            i.fas.fa-bars
+        li.nav-item
+          a.nav-link.nav-link-icon(href='#' data-action='omnisearch-open' data-target='#omnisearch')
+            i.fas.fa-search
+        li.nav-item
+          a.nav-link.nav-link-icon(href='#modal-chat' data-toggle='modal')
+            i.fas.fa-comment-alt
+        li.nav-item.dropdown.dropdown-animate
+          a.nav-link.nav-link-icon(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            i.fas.fa-bell
+          .dropdown-menu.dropdown-menu-right.dropdown-menu-lg.dropdown-menu-arrow.p-0
+            .py-3.px-3
+              h5.heading.h6.mb-0 Notifications
+            .list-group.list-group-flush
+              a.list-group-item.list-group-item-action(href='#')
+                .d-flex.align-items-center(data-toggle='tooltip' data-placement='right' data-title='2 hrs ago')
+                  div
+                    span.avatar.bg-primary.text-white.rounded-circle AM
+                  .flex-fill.ml-3
+                    .h6.text-sm.mb-0
+                      | Alex Michael
+                      small.float-right.text-muted 2 hrs ago
+                    p.text-sm.lh-140.mb-0.
+
+                      Some quick example text to build on the card title.
+
+              a.list-group-item.list-group-item-action(href='#')
+                .d-flex.align-items-center(data-toggle='tooltip' data-placement='right' data-title='3 hrs ago')
+                  div
+                    span.avatar.bg-warning.text-white.rounded-circle SW
+                  .flex-fill.ml-3
+                    .h6.text-sm.mb-0
+                      | Sandra Wayne
+                      small.float-right.text-muted 3 hrs ago
+                    p.text-sm.lh-140.mb-0.
+
+                      Some quick example text to build on the card title.
+
+              a.list-group-item.list-group-item-action(href='#')
+                .d-flex.align-items-center(data-toggle='tooltip' data-placement='right' data-title='5 hrs ago')
+                  div
+                    span.avatar.bg-info.text-white.rounded-circle JM
+                  .flex-fill.ml-3
+                    .h6.text-sm.mb-0
+                      | Jason Miller
+                      small.float-right.text-muted 5 hrs ago
+                    p.text-sm.lh-140.mb-0.
+
+                      Some quick example text to build on the card title.
+
+              a.list-group-item.list-group-item-action(href='#')
+                .d-flex.align-items-center(data-toggle='tooltip' data-placement='right' data-title='2 hrs ago')
+                  div
+                    span.avatar.bg-dark.text-white.rounded-circle MJ
+                  .flex-fill.ml-3
+                    .h6.text-sm.mb-0
+                      | Mike Thomson
+                      small.float-right.text-muted 2 hrs ago
+                    p.text-sm.lh-140.mb-0.
+
+                      Some quick example text to build on the card title.
+
+              a.list-group-item.list-group-item-action(href='#')
+                .d-flex.align-items-center(data-toggle='tooltip' data-placement='right' data-title='3 hrs ago')
+                  div
+                    span.avatar.bg-primary.text-white.rounded-circle RN
+                  .flex-fill.ml-3
+                    .h6.text-sm.mb-0
+                      | Richard Nixon
+                      small.float-right.text-muted 3 hrs ago
+                    p.text-sm.lh-140.mb-0.
+
+                      Some quick example text to build on the card title.
+
+            .py-3.text-center
+              a.link.link-sm.link--style-3(href='#') View all notifications
+        li.nav-item.dropdown.dropdown-animate
+          a.nav-link.pr-lg-0(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+            .media.media-pill.align-items-center
+              span.avatar.rounded-circle
+                img(alt='Image placeholder' src='./assets/img/theme/light/team-4-800x800.jpg')
+              .ml-2.d-none.d-lg-block
+                span.mb-0.text-sm.font-weight-bold John Snow
+          .dropdown-menu.dropdown-menu-sm.dropdown-menu-right.dropdown-menu-arrow
+            h6.dropdown-header.px-0 Hi, John!
+            a.dropdown-item(href='#!')
+              i.fas.fa-user
+              span My profile
+            a.dropdown-item(href='#!')
+              i.fas.fa-cog
+              span Settings
+            a.dropdown-item(href='#!')
+              i.fas.fa-credit-card
+              span Billing
+            a.dropdown-item(href='#!')
+              i.fas.fa-tasks
+              span Activity
+            .dropdown-divider
+            a.dropdown-item(href='#!')
+              i.fas.fa-sign-out-alt
+              span Logout

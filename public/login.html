@@ -1,81 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="./assets/css/sidenav.css" rel="stylesheet">
-    <link href="./assets/css/styles.css" rel="stylesheet">
-    <title>Taskr</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Purpose Application UI is the following chapter we've finished in order to create a complete and robust solution next to the already known Purpose Website UI."
+    />
+    <meta name="author" content="Webpixels" />
+    <title>TaskR</title>
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/img/brand/favicon.png" type="image/png" />
+    <!-- Font Awesome 5 -->
+    <link
+      rel="stylesheet"
+      href="./assets/libs/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <!-- Purpose CSS -->
+    <link rel="stylesheet" href="./assets/css/purpose.css" id="stylesheet" />
   </head>
-  <body>
-    <div class="container-fluid">
-      <div class="row align-top">
-        <div class="col">
-          <nav class="navbar navbar-expand-lg narbar-light bg-light">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <div class="d-flex flex-row bd-highlight mb-3">
-                  <div class="p-2 bd-highlight">
-                              <button class="btn btm-btn-icon"><a href="/login"><i class="material-icons">menu</i></a></button>
-                  </div>
-                  <div class="p-2 bd-highlight">
-                              <div class="dropdown"><i class="material-icons" id="account_circle" data-toggle="dropdown">account_circle</i>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="/login">login</a><a class="dropdown-item" href="/members">members</a><a class="dropdown-item" href="/signup">signup</a>
-                                </div>
-                              </div>
+
+  <body class="application application-offset">
+    <!-- Application container -->
+    <div class="container-fluid container-application">
+      <!-- Sidenav -->
+      <!-- Content -->
+      <div class="main-content position-relative">
+        <!-- Main nav -->
+        <!-- Page content -->
+        <div class="page-content">
+          <div class="min-vh-100 py-5 d-flex align-items-center">
+            <div class="w-100">
+              <div class="row justify-content-center">
+                <div class="col-sm-8 col-lg-5">
+                  <div class="card shadow zindex-100 mb-0">
+                    <div class="card-body px-md-5 py-5">
+                      <div class="mb-5">
+                        <h6 class="h3">Login</h6>
+                        <p class="text-muted mb-0">
+                          Sign in to your account to continue.
+                        </p>
+                      </div>
+                      <span class="clearfix"></span>
+                      <form class="login" role="form">
+                        <div class="form-group">
+                          <label class="form-control-label"
+                            >Email address</label
+                          >
+                          <div class="input-group input-group-merge">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"
+                                ><i class="fas fa-user"></i
+                              ></span>
+                            </div>
+                            <input
+                              type="email"
+                              class="form-control"
+                              id="email-input"
+                              placeholder="name@example.com"
+                            />
+                          </div>
+                        </div>
+                        <div class="form-group mb-4">
+                          <div
+                            class="d-flex align-items-center justify-content-between"
+                          >
+                            <div>
+                              <label class="form-control-label">Password</label>
+                            </div>
+                            <div class="mb-2">
+                              <a
+                                href="#!"
+                                class="small text-muted text-underline--dashed border-primary"
+                                >Lost password?</a
+                              >
+                            </div>
+                          </div>
+                          <div class="input-group input-group-merge">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text"
+                                ><i class="fas fa-key"></i
+                              ></span>
+                            </div>
+                            <input
+                              type="password"
+                              class="form-control"
+                              id="password-input"
+                              placeholder="********"
+                            />
+                            <div class="input-group-append">
+                              <span class="input-group-text">
+                                <a
+                                  href="#"
+                                  data-toggle="password-text"
+                                  data-target="#password-input"
+                                >
+                                  <i class="fas fa-eye"></i>
+                                </a>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                        class="alter alert-danger"
+                        id="alert"
+                        style="display:none"
+                        role="alert"
+                      >
+                        <span
+                          class="glyphicon glyphicon-exclamation-sign"
+                          aria-hidden="true"
+                        ></span
+                        ><span class="sr-only">Error:</span
+                        ><span class="msg"></span>
+                      </div>
+                        <div class="my-4">
+                          <div
+                            class="custom-control custom-checkbox mb-3"
+                          ></div>
+                          <div class="custom-control custom-checkbox"></div>
+                        </div>
+                        <div class="mt-4">
+                          <button
+                            type="submit"
+                            class="btn btn-sm btn-primary btn-icon rounded-pill"
+                          >
+                            <span class="btn-inner--text">Sign in</span>
+                            <span class="btn-inner--icon"
+                              ><i class="fas fa-long-arrow-alt-right"></i
+                            ></span>
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="card-footer px-md-5">
+                      <small>Not registered?</small>
+                      <a href="/register" class="small font-weight-bold"
+                        >Create account</a
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </nav>
+          </div>
         </div>
-      </div>
-      <div class="row align-middle">
-        <div class="col">
-          <main>
-            <div class="row">
-              <div class="col-1">
-                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"><a class="nav-link" id="v-pills-val-tab" data-toggle="pill" href="#v-pills-Dashboard" role="tab" aria-controls="v-pills-Dashboard" aria-selected="true">Dashboard</a><a class="nav-link" id="v-pills-val-tab" data-toggle="pill" href="#v-pills-Stacks" role="tab" aria-controls="v-pills-Stacks" aria-selected="true">Stacks</a><a class="nav-link" id="v-pills-val-tab" data-toggle="pill" href="#v-pills-Account" role="tab" aria-controls="v-pills-Account" aria-selected="true">Account</a>
-                </div>
-              </div>
-              <div class="col-11">
-                <h2>Login Form</h2>
-                <form class="login">
-                  <div class="form-group">
-                    <label for="addEmail">Email address</label>
-                    <input class="form-control" id="email-input" type="email" placeholder="Email">
-                  </div>
-                  <div class="form-group">
-                    <label for="addPassword">Password</label>
-                    <input class="form-control" id="password-input" type="password" placeholder="Password">
-                  </div>
-                  <button class="btn btn-primary" type="submit">Login</button>
-                </form><br>
-                <p>Or sign up<a href="/">here</a></p>
-              </div>
-            </div>
-          </main>
-        </div>
-      </div>
-      <div class="row align-bottom">
-        <div class="col">
-          <nav class="navbar navbar-expand-lg narbar-light bg-light" id="footer">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <p>Copyright &copy; Taskr</p>
-              </div>
-            </div>
-          </nav>
-        </div>
+        <!-- Footer -->
       </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./assets/javascript/login.js"></script>
-    <script type="text/javascript" src="./assets/javascript/signup.js"></script>
-    <script type="text/javascript" src="./assets/javascript/members.js"></script>
+    <!-- Scripts -->
+    <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
+    <script src="./assets/js/purpose.core.js"></script>
+    <!-- Purpose JS -->
+    <script src="./assets/js/purpose.js"></script>
+
+    <script type="text/javascript" src="./assets/js/login.js"></script>
   </body>
 </html>

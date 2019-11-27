@@ -1,82 +1,221 @@
-var gulp = require("gulp"); // Task runner.
-var pug = require("gulp-pug"); // allows gulp to work with pug files
-var sass = require("gulp-sass"); // allows gulp to work with sass files
-var rename = require("gulp-rename"); // allows gulp to rename files and folders
-// var message = require("gulp-message");
-var nodemon = require("gulp-nodemon");
-var eslint = require("gulp-eslint");
-// var gulpIf = require("gulp-if");
-// var file = require("vinyl");
+'use strict';
 
-// sets task to convert pug into html
-gulp.task("pug", function() {
-  return gulp
-    .src("./views/*.pug") // file location of the pug file
-    .pipe(
-      pug({
-        doctype: "html", // file type to be converted to
-        pretty: true // formats the file after conversion
-      })
-    )
-    .pipe(rename({ dirname: "" })) // renames file and directory
-    .pipe(gulp.dest("./public")); // location of where html will be sent after task is done
+// Gulp file to automate the various tasks
+
+let gulp = require('gulp'),
+	autoprefixer = require('gulp-autoprefixer'),
+	browserSync = require('browser-sync').create(),
+	csscomb = require('gulp-csscomb'),
+	cleanCss = require('gulp-clean-css'),
+	cache = require('gulp-cache'),
+	concat = require('gulp-concat'),
+	cssnano = require('gulp-cssnano'),
+	del = require('del'),
+	htmlBeautify = require('gulp-html-beautify'),
+	npmDist = require('gulp-npm-dist'),
+	postcss = require('gulp-postcss'),
+	plumber = require('gulp-plumber'),
+	sass = require('gulp-sass'),
+	sourcemaps = require('gulp-sourcemaps'),
+	uglify = require('gulp-uglify'),
+	rename = require('gulp-rename'),
+	replace = require('gulp-replace'),
+	wait = require('gulp-wait');
+
+// Define paths
+
+var paths = {
+	base: {
+		node: 'node_modules'
+	},
+	dist: {
+		base: './',
+		css: 'assets/css',
+		js: 'assets/js'
+	},
+	src: {
+		base: './',
+		html: '**/*.html',
+		css: 'assets/css',
+		js: 'assets/js',
+		img: 'assets/img/**/*.+(png|jpg|gif|svg)',
+		vendor: 'assets/libs',
+		resources: 'resources'
+	}
+}
+
+// Clean CSS
+gulp.task('clean:css', function(done) {
+	return del([
+		paths.dist.css + '/**/*.css',
+		'!' + paths.dist.css + '/docs.css'
+	]);
+	done();
 });
 
-// sets task to convert sass into css
-gulp.task("sass", function() {
-  return gulp
-    .src("./public/assets/sass/*.sass")
-    .pipe(
-      sass({
-        doctype: "css",
-        pretty: true
-      })
-    )
-    .pipe(rename({ dirname: "" }))
-    .pipe(gulp.dest("./public/assets/css"));
+// Compile SCSS
+
+gulp.task('compile:scss', function(done) {
+	console.log(paths.src.resources + '/scss/**/*.scss');
+	return gulp
+		.src(paths.src.resources + '/scss/**/*.scss')
+		.pipe(wait(500))
+		.pipe(sass().on('error', sass.logError))
+		.pipe(postcss([require('postcss-flexbugs-fixes')]))
+		.pipe(autoprefixer({
+			browsers: ['> 1%']
+		}))
+		.pipe(csscomb())
+		.pipe(gulp.dest(paths.dist.css))
+		.pipe(browserSync.reload({
+			stream: true
+		}));
+	done();
 });
 
-// function isFixed(file) {
-//   return file.eslint !== null && file.eslint.fixed;
-// }
+// Minify CSS
 
-// gulp.task("lint", function() {
-//   return (
-//     gulp
-//       .src(["./**/*.js", "!./bundle.js"])
-
-//       .pipe(eslint({ fix: true }))
-//       .pipe(eslint.format())
-//       // .pipe(eslint({ useEslintrc: true }))
-//       // .pipe(gulpIf(isFixed, gulp.dest("./**/*.js")))
-//       .pipe(eslint.failAfterError())
-//   );
-// });
-gulp.task("lint", function() {
-  return (
-    gulp
-      .src(["*.js", "!./bundle.js"])
-      // eslint() attaches the lint output to the "eslint" property
-      // of the file object so it can be used by other modules.
-      .pipe(eslint({ fix: true }))
-      .pipe(eslint({ useEslintrc: true }))
-      // eslint.format() outputs the lint results to the console.
-      // Alternatively use eslint.formatEach() (see Docs).
-      .pipe(eslint.formatEach())
-      // To have the process exit with an error code (1) on
-      // lint error, return the stream and pipe to failAfterError last.
-      .pipe(eslint.failAfterError())
-  );
-});
-gulp.task("server", function() {
-  nodemon({
-    script: "server.js",
-    watch: ["server.js", "./routes/*", "/public/*", "public/*/**"],
-    ext: "js"
-  }).on("restart", function() {
-    gulp.src("server.js");
-  });
+gulp.task('minify:css', function(done) {
+	return gulp.src(paths.dist.css + '/purpose.css')
+		.pipe(sourcemaps.init())
+		.pipe(cleanCss())
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(gulp.dest(paths.dist.css))
+	done();
 });
 
-// runs several tasks at once
-gulp.task("start", gulp.parallel("pug", "sass", "lint"));
+// Clean JS
+
+gulp.task('clean:js', function(done) {
+	return del([
+		paths.dist.js + '/**/*.js',
+		'!' + paths.dist.js + '/docs.js'
+	]);
+	done();
+});
+
+// Concat JS
+
+gulp.task('concat:js-core', function(done) {
+	return gulp
+		.src([
+			'assets/libs/jquery/dist/jquery.min.js',
+			'assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js',
+			'assets/libs/in-view/dist/in-view.min.js',
+			'assets/libs/sticky-kit/dist/sticky-kit.min.js',
+			'assets/libs/svg-injector/dist/svg-injector.min.js',
+			'assets/libs/jquery.scrollbar/jquery.scrollbar.min.js',
+			'assets/libs/jquery-scroll-lock/dist/jquery-scrollLock.min.js',
+			'assets/libs/imagesloaded/imagesloaded.pkgd.min.js'
+		])
+		.pipe(concat('purpose.core.js'))
+		.pipe(gulp.dest(paths.dist.js));
+
+	done();
+});
+
+gulp.task('concat:js', function(done) {
+	return gulp
+		.src([
+			paths.src.resources + '/js/purpose/license.js',
+			paths.src.resources + '/js/purpose/layout.js',
+			paths.src.resources + '/js/purpose/init/*.js',
+			paths.src.resources + '/js/purpose/custom/*.js',
+			paths.src.resources + '/js/purpose/maps/*.js',
+			paths.src.resources + '/js/purpose/charts/*.js',
+			paths.src.resources + '/js/purpose/libs/*.js',
+			paths.src.resources + '/js/purpose/charts/**/*js'
+		])
+		.pipe(concat('purpose.js'))
+		.pipe(gulp.dest(paths.dist.js))
+		.pipe(browserSync.reload({
+			stream: true
+		}));
+	done();
+});
+
+// Minify js
+gulp.task('minify:js', function(done) {
+	return gulp.src(paths.dist.js + '/purpose.js')
+		.pipe(plumber())
+		.pipe(sourcemaps.init())
+		.pipe(uglify())
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(gulp.dest(paths.dist.js))
+	done();
+});
+
+// Clean
+
+gulp.task('clean:dist', function(done) {
+	return del([
+		paths.dist.css + '/**/purpose*.css',
+		paths.dist.js + '/**/purpose*.js'
+	]);
+	done();
+});
+
+// Copy CSS
+
+gulp.task('copy:css', function(done) {
+	return gulp.src([
+			paths.src.base + '/assets/css/theme.css'
+		])
+		.pipe(gulp.dest(paths.dist.base + '/css'))
+	done();
+});
+
+// Create dist folder
+
+gulp.task('create:dist', function(done) {
+	return gulp.src([
+			'./assets/**/purpose*.+(js|css)'
+		])
+		.pipe(gulp.dest('./dist'))
+	done();
+});
+
+//  BrowserSync
+
+// Initialize the browsersync
+
+function browserSyncInit(done) {
+	browserSync.init({
+		server: {
+			baseDir: './'
+		},
+		port: 3000
+	});
+	done();
+}
+
+// BrowserSync Reload (callback)
+
+function browserSyncReload(done) {
+	browserSync.reload();
+	done();
+}
+
+function watchFiles() {
+	gulp.watch(paths.src.resources + '/scss/**/*.scss', gulp.series('compile:scss'));
+	gulp.watch(paths.src.resources + '/js/**/*.js', gulp.series('concat:js'));
+	gulp.watch(paths.src.html, browserSyncReload);
+}
+
+// Bundled tasks
+
+gulp.task('js', gulp.series('clean:js', 'concat:js-core', 'concat:js', 'minify:js'));
+gulp.task('css', gulp.series('clean:css', 'compile:scss', 'minify:css'));
+gulp.task('browserSync', gulp.series(browserSyncInit, watchFiles));
+
+// Build
+
+gulp.task('build', gulp.series('clean:dist', 'css', 'js'));
+
+// Default
+
+gulp.task('default', gulp.series('compile:scss', 'browserSync'));

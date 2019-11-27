@@ -1,20 +1,18 @@
-// Requiring our models and passport as we've configured it
+// var user  = require("../models/user.js");
 var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function(app) {
-  // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid login credentials, send them to the members page.
-  // Otherwise the user will be sent an error
+  // USER AUTHENTICATION
+
+  // LOG IN
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
   });
 
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
+  //SIGN UP
   app.post("/api/signup", function(req, res) {
-    db.User.create({
+    user.User.create({
       email: req.body.email,
       password: req.body.password
     })
@@ -26,24 +24,61 @@ module.exports = function(app) {
       });
   });
 
-  // Route for logging user out
+  // LOG OUT
   app.get("/logout", function(req, res) {
-    req.logout();
-    res.redirect("/");
+    req.session.destroy(function(err) {
+      res.redirect("/");
+    });
   });
 
-  // Route for getting some data about our user to be used client side
+  // USER DATA
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {
-      // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
         id: req.user.id
       });
     }
+  });
+
+  //TASKS
+  app.get("/api/tasks", function(req, res) {
+    db.Task.findAll({}).then(function(dbTask) {
+      res.json(dbTask);
+    });
+  });
+
+  app.get("/api/tasks", function(req, res) {
+    db.Task.findAll({}).then(function(dbTask) {
+      res.json(dbTask);
+    });
+  });
+
+  app.post("/api/tasks", function(req, res) {
+    db.Task.create({
+      taskName: req.body.taskName
+    })
+      .then(function(dbTask) {
+        res.json(dbTask);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
+
+  app.put("/api/tasks", function(req, res) {
+    db.Task.update({
+      where: {
+        id: req.body.id
+      }
+    })
+      .then(function(dbTask) {
+        res.json(dbTask);
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
   });
 };

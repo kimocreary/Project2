@@ -5,20 +5,63 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   app.get("/", function(req, res) {
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/kanban");
     }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    res.sendFile(path.join(__dirname, "../public/register.html"));
   });
-
+  app.get("/register", function(req, res) {
+    if (req.user) {
+      res.redirect("/kanban");
+    }
+    res.sendFile(path.join(__dirname, "../public/register.html"));
+  });
   app.get("/login", function(req, res) {
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/kanban");
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
-  app.get("/members", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+  app.get("/logout", function(req, res) {
+    req.session.destroy(function(err) {
+      res.redirect("/");
+    });
+  });
+
+  app.get("/home", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/home.html"));
+  });
+
+  app.get("/kanban", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/kanban.html"));
+  });
+
+  app.get("/overview", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/overview.html"));
+  });
+
+  app.get("/portfolio", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/portfolio.html"));
+  });
+
+  app.get("/project", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/project.html"));
+  });
+
+  app.get("/user", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/user.html"));
+  });
+
+  app.get("/tasks", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/task.html"));
+  });
+
+  app.get("/calendar", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/calendar.html"));
+  });
+
+  app.get("/react", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/react.html"));
   });
 
   app.get("*", function(req, res) {

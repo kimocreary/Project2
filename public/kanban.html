@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>TaskR</title>
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/img/brand/favicon.png" type="image/png">
+  <!-- Font Awesome 5 -->
+  <link rel="stylesheet" href="./assets/libs/@fortawesome/fontawesome-free/css/all.min.css"><!-- Purpose CSS -->
+  <link rel="stylesheet" href="./assets/css/purpose.css" id="stylesheet">
+</head>
+
+<body class="application application-offset">
+  <!-- Application container -->
+  <div class="container-fluid container-application">
+    <!-- Sidenav -->
+    <div class="sidenav" id="sidenav-main">
+      <!-- Sidenav header -->
+      <div class="sidenav-header d-flex align-items-center">
+        <div class="ml-auto">
+          <!-- Sidenav toggler -->
+          <div class="sidenav-toggler sidenav-toggler-dark d-md-none" data-action="sidenav-unpin" data-target="#sidenav-main">
+            <div class="sidenav-toggler-inner">
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+              <i class="sidenav-toggler-line bg-white"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- User mini profile -->
+      <div class="sidenav-user d-flex flex-column align-items-center justify-content-between text-center">
+        <!-- Avatar -->
+        <div>
+          <a href="#" class="avatar rounded-circle avatar-xl">
+            <img alt="Image placeholder" src="./assets/img/theme/light/team-1-800x800.jpg" class="">
+          </a>
+          <div class="mt-4">
+            <h5 class="mb-0 text-white">Heather Parker</h5>
+            <span class="d-block text-sm text-white opacity-8 mb-3">Web Architect</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Content -->
+    <div class="main-content position-relative">
+      <!-- Main nav -->
+      <nav class="navbar navbar-main navbar-expand-lg navbar-dark bg-primary navbar-border" id="navbar-main">
+        <div class="container-fluid">
+          <!-- Brand + Toggler (for mobile devices) -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- User's navbar -->
+          <div class="navbar-user d-lg-none ml-auto">
+            <ul class="navbar-nav flex-row align-items-center">
+              <li class="nav-item dropdown dropdown-animate">
+                <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg dropdown-menu-arrow p-0">
+                  <div class="py-3 px-3">
+                    <h5 class="heading h6 mb-0">Notifications</h5>
+                  </div>
+                  <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="2 hrs ago">
+                        <div>
+                          <span class="avatar bg-primary text-white rounded-circle">AM</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Alex Michael <small class="float-right text-muted">2 hrs ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="3 hrs ago">
+                        <div>
+                          <span class="avatar bg-warning text-white rounded-circle">SW</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Sandra Wayne <small class="float-right text-muted">3 hrs ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="5 hrs ago">
+                        <div>
+                          <span class="avatar bg-info text-white rounded-circle">JM</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Jason Miller <small class="float-right text-muted">5 hrs ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="2 hrs ago">
+                        <div>
+                          <span class="avatar bg-dark text-white rounded-circle">MJ</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Mike Thomson <small class="float-right text-muted">2 hrs ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="3 hrs ago">
+                        <div>
+                          <span class="avatar bg-primary text-white rounded-circle">RN</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Richard Nixon <small class="float-right text-muted">3 hrs ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="py-3 text-center">
+                    <a href="#" class="link link-sm link--style-3">View all notifications</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- Navbar nav -->
+          <div class="collapse navbar-collapse navbar-collapse-fade" id="navbar-main-collapse">
+            <ul class="navbar-nav align-items-lg-center">
+              <li class="nav-item">
+                  <a href="#" class="nav-link nav-link-icon sidenav-toggler" data-action="sidenav-pin" data-target="#sidenav-main"><i class="fas fa-bars"></i></a>
+               </li>
+              <li class="border-top opacity-2 my-2"></li>
+              <!-- Home  -->
+              <li class="nav-item ">
+                  <a class="navbar-brand" href="./kanban.html">
+                    <img src="./assets/img/brand/white.png" class="navbar-brand-img" alt="...">
+                  </a>
+              </li>
+            </ul><!-- Right menu -->
+            <ul class="navbar-nav ml-lg-auto align-items-center d-none d-lg-flex">
+
+              <li class="nav-item dropdown dropdown-animate">
+                <a class="nav-link nav-link-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bell"></i></a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg dropdown-menu-arrow p-0">
+                  <div class="py-3 px-3">
+                    <h5 class="heading h6 mb-0">Notifications</h5>
+                  </div>
+                  <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="2 hrs ago">
+                        <div>
+                          <span class="avatar bg-primary text-white rounded-circle">AM</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Alex Michael <small class="float-right text-muted">2 hrs ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="3 hrs ago">
+                        <div>
+                          <span class="avatar bg-warning text-white rounded-circle">SW</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Sandra Wayne <small class="float-right text-muted">3 hrs ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="5 hrs ago">
+                        <div>
+                          <span class="avatar bg-info text-white rounded-circle">JM</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Jason Miller <small class="float-right text-muted">5 hrs ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="2 hrs ago">
+                        <div>
+                          <span class="avatar bg-dark text-white rounded-circle">MJ</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Mike Thomson <small class="float-right text-muted">2 hrs ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <div class="d-flex align-items-center" data-toggle="tooltip" data-placement="right" data-title="3 hrs ago">
+                        <div>
+                          <span class="avatar bg-primary text-white rounded-circle">RN</span>
+                        </div>
+                        <div class="flex-fill ml-3">
+                          <div class="h6 text-sm mb-0">Richard Nixon <small class="float-right text-muted">3 hrs ago</small></div>
+                          <p class="text-sm lh-140 mb-0">
+                            Some quick example text to build on the card title.
+                          </p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="py-3 text-center">
+                    <a href="#" class="link link-sm link--style-3">View all notifications</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown dropdown-animate">
+                <a class="nav-link pr-lg-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="media media-pill align-items-center">
+                    <span class="avatar rounded-circle">
+                      <img alt="Image placeholder" src="./assets/img/theme/light/team-1-800x800.jpg">
+                    </span>
+                    <div class="ml-2 d-none d-lg-block">
+                      <span class="mb-0 text-sm  font-weight-bold">Heather Parker</span>
+                    </div>
+                  </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right dropdown-menu-arrow">
+                  <h6 class="dropdown-header px-0">Hi, Heather!</h6>
+                  <div class="dropdown-divider"></div>
+                  <a href="/logout" class="dropdown-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Page content -->
+      <div class="page-content">
+        <!-- Modals -->
+        <div class="modal fade" id="modal-users" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header align-items-center">
+                <div class="modal-title">
+                  <h6 class="mb-0">Select team</h6>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!-- Connections -->
+                <div class="row">
+                  <div class="col-6 col-md-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <div class="avatar-parent-child">
+                          <a href="#" class="avatar avatar-lg rounded-circle">
+                            <img alt="Image placeholder" src="./assets/img/theme/light/team-1-800x800.jpg">
+                          </a>
+                          <span class="avatar-child avatar-badge bg-success"></span>
+                        </div>
+                        <h6 class="text-sm my-3">John Sullivan</h6>
+                        <button type="button" class="btn btn-xs btn-secondary">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <div class="avatar-parent-child">
+                          <a href="#" class="avatar avatar-lg rounded-circle">
+                            <img alt="Image placeholder" src="./assets/img/theme/light/team-2-800x800.jpg">
+                          </a>
+                          <span class="avatar-child avatar-badge bg-warning"></span>
+                        </div>
+                        <h6 class="text-sm my-3">Heather Wright</h6>
+                        <button type="button" class="btn btn-xs btn-secondary">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <div class="avatar-parent-child">
+                          <a href="#" class="avatar avatar-lg rounded-circle">
+                            <img alt="Image placeholder" src="./assets/img/theme/light/team-3-800x800.jpg">
+                          </a>
+                          <span class="avatar-child avatar-badge bg-danger"></span>
+                        </div>
+                        <h6 class="text-sm my-3">James Lewis</h6>
+                        <button type="button" class="btn btn-xs btn-secondary">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <div class="avatar-parent-child">
+                          <a href="#" class="avatar avatar-lg rounded-circle">
+                            <img alt="Image placeholder" src="./assets/img/theme/light/team-4-800x800.jpg">
+                          </a>
+                          <span class="avatar-child avatar-badge bg-success"></span>
+                        </div>
+                        <h6 class="text-sm my-3">Martin Gray</h6>
+                        <button type="button" class="btn btn-xs btn-secondary">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <div class="avatar-parent-child">
+                          <a href="#" class="avatar avatar-lg rounded-circle">
+                            <img alt="Image placeholder" src="./assets/img/theme/light/team-5-800x800.jpg">
+                          </a>
+                          <span class="avatar-child avatar-badge bg-success"></span>
+                        </div>
+                        <h6 class="text-sm my-3">John Snow</h6>
+                        <button type="button" class="btn btn-xs btn-secondary">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <div class="avatar-parent-child">
+                          <a href="#" class="avatar avatar-lg rounded-circle">
+                            <img alt="Image placeholder" src="./assets/img/theme/light/team-6-800x800.jpg">
+                          </a>
+                          <span class="avatar-child avatar-badge bg-success"></span>
+                        </div>
+                        <h6 class="text-sm my-3">John Michael</h6>
+                        <button type="button" class="btn btn-xs btn-secondary">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <div class="avatar-parent-child">
+                          <a href="#" class="avatar avatar-lg rounded-circle">
+                            <img alt="Image placeholder" src="./assets/img/theme/light/team-7-800x800.jpg">
+                          </a>
+                          <span class="avatar-child avatar-badge bg-warning"></span>
+                        </div>
+                        <h6 class="text-sm my-3">Monroe Parker</h6>
+                        <button type="button" class="btn btn-xs btn-secondary">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-md-3">
+                    <div class="card">
+                      <div class="card-body text-center">
+                        <div class="avatar-parent-child">
+                          <a href="#" class="avatar avatar-lg rounded-circle">
+                            <img alt="Image placeholder" src="./assets/img/theme/light/team-8-800x800.jpg">
+                          </a>
+                          <span class="avatar-child avatar-badge bg-danger"></span>
+                        </div>
+                        <h6 class="text-sm my-3">Danielle Levin</h6>
+                        <button type="button" class="btn btn-xs btn-secondary">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Show task modal -->
+        <div class="modal fade fixed-right" id="modal-task-view" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog modal-vertical modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <!-- Task Name -->
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <!-- Start date -->
+                    <div class="form-group mb-0">
+                      <label class="form-control-label">
+                        <span>Database</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Task date -->
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <!-- Start date -->
+                    <div class="form-group mb-0">
+                      <label class="form-control-label">
+                        Start date:<span> 11/26/2019</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <!-- End date -->
+                    <div class="form-group mb-0">
+                      <label class="form-control-label">
+                        End date: <span> 12/26/2019</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                  <label class="form-control-label mb-4">
+                    Description
+                  </label>
+                  <div class="list-group list-group-flush mb-0">
+                    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                  </div>
+                <br>
+                <label class="form-control-label mb-4">
+                  Activity
+                </label>
+                <div class="list-group list-group-flush mb-0">
+                  <div class="list-group-item px-0">
+                    <div class="row align-items-center">
+                      <div class="col-auto">
+                        <!-- Avatar -->
+                        <a href="#" class="avatar avatar-sm rounded-circle">
+                          <img alt="Image placeholder" src="./assets/img/theme/light/team-3-800x800.jpg" class="">
+                        </a>
+                      </div>
+                      <div class="col ml-n2">
+                        <a href="#!" class="d-block h6 text-sm font-weight-light mb-0">Martin added a new task to <strong>To Do</strong> list</a>
+                        <small class="d-block">20 min ago</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer align-items-center">
+                <div class="col-8 d-flex align-items-center">
+                  <div class="pr-3">
+                    <img alt="Image placeholder" src="./assets/img/theme/light/team-2-800x800.jpg" class="avatar rounded-circle avatar-sm">
+                  </div>
+                  <form class="card-comment-box" role="form">
+                    <textarea rows="1" class="form-control" data-toggle="autosize" placeholder="Add a comment..."></textarea>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Page title -->
+        <div class="page-title">
+          <div class="row justify-content-between align-items-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-between justify-content-md-start mb-3 mb-md-0">
+              <!-- Page title + Go Back button -->
+              <div class="d-inline-block">
+                <h5 class="h4 d-inline-block font-weight-400 mb-0 text-white">Kanban</h5>
+              </div>
+              <!-- Additional info -->
+              <div class="align-items-center ml-4 d-inline-flex">
+                <span class="h4 text-info mb-0 mr-2">9</span>
+                <span class="text-sm opacity-7 text-white">New tasks</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Kanban board -->
+        <div class="card overflow-hidden">
+          <div class="container-kanban">
+            <div class="kanban-board" data-toggle="dragula" data-containers='["kanban-blacklist", "kanban-to-do", "kanban-in-progress", "kanban-testing", "kanban-done"]'>
+              <div class="kanban-col px-0">
+                <div class="card-list card-list-flush border-0">
+                  <div class="card-list-title row align-items-center mb-3">
+                    <div class="col">
+                      <h6 class="mb-0">To do</h6>
+                    </div>
+                  </div>
+                  <div class="card-list-body" id="kanban-to-do">
+                    <div class="card card-progress draggable-item border shadow-none">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-2">
+                          <div class="col-6">
+                            <span class="badge badge-pill badge-xs badge-success">Urgent</span>
+                          </div>
+                        </div>
+                        <a class="h6" href="#modal-task-view" data-toggle="modal">Wireframe</a>
+                        <div class="row align-items-center">
+                          <div class="col offset-md-1 text-right">
+                            <a href="#" class="avatar avatar-sm rounded-circle m-0">
+                              <img alt="Image placeholder" src="./assets/img/theme/light/team-1-800x800.jpg">
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-progress draggable-item border shadow-none">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-2">
+                          <div class="col-6">
+                            <span class="badge badge-pill badge-xs badge-warning">Priority</span>
+                          </div>
+                        </div>
+                        <a class="h6" href="#modal-task-view" data-toggle="modal">Database</a>
+                        <div class="row align-items-center">
+                          <div class="col offset-md-1 text-right">
+                            <a href="#" class="avatar avatar-sm rounded-circle m-0">
+                              <img alt="Image placeholder" src="./assets/img/theme/light/team-2-800x800.jpg">
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-progress draggable-item border shadow-none">
+                      <div class="card-body">
+                        <div class="row align-items-center mb-2">
+                          <div class="col-6">
+                            <span class="badge badge-pill badge-xs badge-info">Priority</span>
+                          </div>
+                        </div>
+                        <a class="h6" href="#modal-task-view" data-toggle="modal">Refactor</a>
+                        <div class="row align-items-center">
+                          <div class="col offset-md-1 text-right">
+                            <a href="#" class="avatar avatar-sm rounded-circle m-0">
+                              <img alt="Image placeholder" src="./assets/img/theme/light/team-3-800x800.jpg">
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Empty container -->
+                    <span class="empty-container" data-placeholder="Empty"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="kanban-col px-0">
+                <div class="card-list card-list-flush border-0">
+                  <div class="card-list-title row align-items-center mb-3">
+                    <div class="col">
+                      <h6 class="mb-0">In progress</h6>
+                    </div>
+                  </div>
+                  <div class="card-list-body" id="kanban-in-progress">
+                    <!-- Empty container -->
+                    <span class="empty-container" data-placeholder="Empty"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="kanban-col px-0">
+                <div class="card-list card-list-flush border-0">
+                  <div class="card-list-title row align-items-center mb-3">
+                    <div class="col">
+                      <h6 class="mb-0">Testing</h6>
+                    </div>
+                  </div>
+                  <div class="card-list-body" id="kanban-testing">
+                    <!-- Empty container -->
+                    <span class="empty-container" data-placeholder="Empty"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="kanban-col px-0">
+                <div class="card-list card-list-flush border-0">
+                  <div class="card-list-title row align-items-center mb-3">
+                    <div class="col">
+                      <h6 class="mb-0">Done</h6>
+                    </div>
+                  </div>
+                  <div class="card-list-body" id="kanban-done">
+                    <!-- Empty container -->
+                    <span class="empty-container" data-placeholder="Empty"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div class="footer pt-5 pb-4 footer-light" id="footer-main">
+        <div class="row text-center text-sm-left align-items-sm-center">
+          <div class="col-sm-6">
+            <p class="text-sm mb-0">&copy; 2019 <a href="#" class="h6 text-sm" >TaskR</a>. All rights reserved.</p>
+          </div>
+          <div class="col-sm-6 mb-md-0">
+            <ul class="nav justify-content-center justify-content-md-end">
+              <li class="nav-item dropdown border-right">
+                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img alt="Image placeholder" src="./assets/img/icons/flags/us.svg">
+                  <span class="h6 text-sm mb-0">EN</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                  <a href="#" class="dropdown-item"><img alt="Image placeholder" src="./assets/img/icons/flags/es.svg" class="mr-2">Spanish</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Support</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Terms</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link pr-0" href="#">Privacy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Scripts -->
+  <!-- Core JS - includes jquery, bootstrap, popper, in-view and sticky-kit -->
+  <script src="./assets/js/purpose.core.js"></script>
+  <!-- Page JS -->
+  <script src="./assets/libs/dragula/dist/dragula.min.js"></script>
+  <!-- <script src="./assets/libs/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script> -->
+  <script src="./assets/libs/autosize/dist/autosize.min.js"></script>
+  <script src="./assets/libs/dropzone/dist/min/dropzone.min.js"></script>
+  <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+  <!-- Purpose JS -->
+  <script src="./assets/js/purpose.js"></script>
+ 
+</body>
+
+</html>
