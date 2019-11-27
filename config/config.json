@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Chiwale1",
+    "password": "monkeybob",
     "database": "taskr_db",
     "host": "localhost",
     "dialect": "mysql"

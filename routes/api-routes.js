@@ -25,7 +25,10 @@ module.exports = function(app) {
         res.status(401).json(err);
       });
   });
-
+  // app.get("/", function(req, res) {
+  //   // req.logout();
+  //   res.render("");
+  // });
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
@@ -48,7 +51,7 @@ module.exports = function(app) {
   }
   );
   app.post("/api/tasks", function(req, res) {
-    console.log(req.body, "req body");
+    console.log(req.body, "req body in tasks");
     db.Task.create({
       task_description: req.body.taskName,
       task_priority: req.body.priorityLevel,
@@ -57,13 +60,16 @@ module.exports = function(app) {
       console.log(dbTask)
     })
   });
+
   app.get("/api/tasks", function(req, res) {
+    console.log("get is working")
     db.Task.findAll({})
     .then(function(dbTask){
-      console.log(dbTask)
-      return(dbTask);
+      console.log(dbTask, 'dbtask')
+      res.json(dbTask);
     });
-  })
+  });
+
   app.put("/api/tasks", function(req, res){
     db.Task.update(req.body,
       {
