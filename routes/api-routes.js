@@ -49,12 +49,6 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/tasks", function(req, res) {
-    db.Task.findAll({}).then(function(dbTask) {
-      res.json(dbTask);
-    });
-  });
-
   app.post("/api/tasks", function(req, res) {
     db.Task.create({
       taskName: req.body.taskName
