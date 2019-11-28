@@ -25,10 +25,7 @@ module.exports = function(app) {
         res.status(401).json(err);
       });
   });
-  // app.get("/", function(req, res) {
-  //   // req.logout();
-  //   res.render("");
-  // });
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();
@@ -51,7 +48,7 @@ module.exports = function(app) {
   }
   );
   app.post("/api/tasks", function(req, res) {
-    console.log(req.body, "req body in tasks");
+    console.log(req.body, "req body");
     db.Task.create({
       task_description: req.body.taskName,
       task_priority: req.body.priorityLevel,
@@ -60,17 +57,24 @@ module.exports = function(app) {
       console.log(dbTask)
     })
   });
-
   app.get("/api/tasks", function(req, res) {
-    console.log("get is working")
     db.Task.findAll({})
     .then(function(dbTask){
-      console.log(dbTask, 'dbtask')
-      res.json(dbTask);
+      console.log(dbTask['dataValues'])
+      res.status(200).send(dbTask);
     });
-  });
-
+  })
   app.put("/api/tasks", function(req, res){
+    if(req.body.developer_duedate == 'null' || req.body.developer_duedate == ''){
+      delete req.body.developer_duedate;
+    }
+    if(req.body.completion_date == 'null' || req.body.completion_date == ''){
+      delete req.body.completion_date;
+    }
+    if(req.body.target_date == 'null' || req.body.target_date == ''){
+      delete req.body.target_date;
+    }
+    console.log(req.body);
     db.Task.update(req.body,
       {
         where: {
