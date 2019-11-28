@@ -2,63 +2,63 @@
 // Dropdown
 //
 
-'use strict';
+"use strict";
 
 var Dropdown = (function() {
+  // Variables
 
-	// Variables
+  var $dropdown = $(".dropdown-animate"),
+    $dropdownSubmenu = $(".dropdown-submenu [data-toggle=\"dropdown\"]");
 
-	var $dropdown = $('.dropdown-animate'),
-		$dropdownSubmenu = $('.dropdown-submenu [data-toggle="dropdown"]');
+  // Methods
 
+  function hideDropdown($this) {
+    // Add additional .hide class for animated dropdown menus in order to apply some css behind
+    // var $dropdownMenu = $this.find('.dropdown-menu');
+    //
+    // $dropdownMenu.addClass('hide');
+    //
+    // setTimeout(function(){
+    //     $dropdownMenu.removeClass('hide');
+    // }, 300);
+  }
 
-	// Methods
+  function initSubmenu($this) {
+    if (!$this.next().hasClass("show")) {
+      $this
+        .parents(".dropdown-menu")
+        .first()
+        .find(".show")
+        .removeClass("show");
+    }
 
-	function hideDropdown($this) {
+    var $submenu = $this.next(".dropdown-menu");
 
-		// Add additional .hide class for animated dropdown menus in order to apply some css behind
+    $submenu.toggleClass("show");
+    $submenu.parent().toggleClass("show");
 
-		// var $dropdownMenu = $this.find('.dropdown-menu');
-		//
-        // $dropdownMenu.addClass('hide');
-		//
-        // setTimeout(function(){
-        //     $dropdownMenu.removeClass('hide');
-        // }, 300);
+    $this
+      .parents(".nav-item.dropdown.show")
+      .on("hidden.bs.dropdown", function(e) {
+        $(".dropdown-submenu .show").removeClass("show");
+      });
+  }
 
-	}
+  // Events
 
-	function initSubmenu($this) {
-        if (!$this.next().hasClass('show')) {
-            $this.parents('.dropdown-menu').first().find('.show').removeClass("show");
-        }
+  if ($dropdown.length) {
+    $dropdown.on({
+      "hide.bs.dropdown": function() {
+        hideDropdown($dropdown);
+      }
+    });
+  }
 
-        var $submenu = $this.next(".dropdown-menu");
+  if ($dropdownSubmenu.length) {
+    $dropdownSubmenu.on("click", function(e) {
+      initSubmenu($(this));
 
-        $submenu.toggleClass('show');
-        $submenu.parent().toggleClass('show');
-
-        $this.parents('.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
-            $('.dropdown-submenu .show').removeClass("show");
-        });
-	}
-
-	// Events
-
-	if ($dropdown.length) {
-    	$dropdown.on({
-    		'hide.bs.dropdown': function() {
-    			hideDropdown($dropdown);
-    		}
-    	})
-	}
-
-	if ($dropdownSubmenu.length) {
-		$dropdownSubmenu.on('click', function(e) {
-
-			initSubmenu($(this))
-
-			return false;
-		});
-	}
+      return false;
+    });
+  }
 })();

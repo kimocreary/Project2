@@ -2,41 +2,35 @@
 // Tags input
 //
 
-'use strict';
+"use strict";
 
 var Tags = (function() {
+  //
+  // Variables
+  //
 
-	//
-	// Variables
-	//
+  var $tags = $("[data-toggle=\"tags\"]");
 
-	var $tags = $('[data-toggle="tags"]');
+  //
+  // Methods
+  //
 
+  function init($this) {
+    var options = {
+      tagClass: "badge badge-primary"
+    };
 
-	//
-	// Methods
-	//
+    $this.tagsinput(options);
+  }
 
-	function init($this) {
+  //
+  // Events
+  //
 
-		var options = {
-			tagClass: 'badge badge-primary'
-		};
-
-		$this.tagsinput(options);
-	}
-
-
-	//
-	// Events
-	//
-
-	if ($tags.length) {
-
-		// Init selects
-		$tags.each(function() {
-			init($(this));
-		});
-	}
-
+  if ($tags.length) {
+    // Init selects
+    $tags.each(function() {
+      init($(this));
+    });
+  }
 })();

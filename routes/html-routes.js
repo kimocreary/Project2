@@ -1,3 +1,4 @@
+"use strict";
 var path = require("path");
 
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -7,14 +8,16 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/kanban");
     }
-    res.sendFile(path.join(__dirname, "../public/register.html"));
+    res.sendFile(path.join(__dirname, "../public/login.html"));
   });
+
   app.get("/register", function(req, res) {
     if (req.user) {
       res.redirect("/kanban");
     }
     res.sendFile(path.join(__dirname, "../public/register.html"));
   });
+
   app.get("/login", function(req, res) {
     if (req.user) {
       res.redirect("/kanban");

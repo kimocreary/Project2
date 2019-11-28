@@ -2,79 +2,72 @@
 // Isotope - Masonry Layout
 //
 
-'use strict';
+"use strict";
 
 var Masonry = (function() {
+  // Variables
 
-	// Variables
+  var $masonryContainer = $(".masonry-container");
 
-	var $masonryContainer = $(".masonry-container");
+  // Methods
 
+  function init($this) {
+    var $el = $this.find(".masonry"),
+      $filters = $this.find(".masonry-filter-menu"),
+      $defaultFilter = $filters.find(".active"),
+      defaultFilterValue = $defaultFilter.data("filter");
 
-	// Methods
+    var $masonry = $el.imagesLoaded(function() {
+      // Set default filter if exists
 
-	function init($this) {
-		var $el = $this.find('.masonry'),
-			$filters = $this.find('.masonry-filter-menu'),
-			$defaultFilter = $filters.find('.active'),
-			defaultFilterValue = $defaultFilter.data('filter');
+      if (defaultFilterValue != undefined && defaultFilterValue != "") {
+        if (defaultFilterValue != "*") {
+          defaultFilterValue = "." + defaultFilterValue;
+        }
 
-		var $masonry = $el.imagesLoaded(function() {
+        $defaultFilter.addClass("active");
+      }
 
-			// Set default filter if exists
+      // Plugin options
+      var options = {
+        itemSelector: ".masonry-item",
+        filter: defaultFilterValue
+      };
 
-			if (defaultFilterValue != undefined && defaultFilterValue != '') {
+      // Init plugin
+      $masonry.isotope(options);
+    });
 
-				if (defaultFilterValue != '*') {
-					defaultFilterValue = '.' + defaultFilterValue;
-				}
+    // Sorting buttons (filters)
 
-				$defaultFilter.addClass('active');
-			}
+    $filters.on("click", "a", function(e) {
+      e.preventDefault();
 
+      var $this = $(this),
+        val = $(this).attr("data-filter");
 
-			// Plugin options
-			var options = {
-				itemSelector: '.masonry-item',
-				filter: defaultFilterValue
-			};
+      if (val == "*") {
+        val = "";
+      } else {
+        val = "." + val;
+      }
 
-			// Init plugin
-			$masonry.isotope(options);
-		});
-
-
-		// Sorting buttons (filters)
-
-        $filters.on('click', 'a', function(e) {
-			e.preventDefault();
-
-			var $this = $(this),
-             	val = $(this).attr('data-filter');
-
-            if (val == '*') {
-                val = '';
-            } else {
-                val = '.' + val;
-            }
-
-            $masonry.isotope({
-                filter: val
-            }).on( 'arrangeComplete', function() {
-				$filters.find('[data-filter]').removeClass('active');
-				$this.addClass('active');
-			} );
+      $masonry
+        .isotope({
+          filter: val
+        })
+        .on("arrangeComplete", function() {
+          $filters.find("[data-filter]").removeClass("active");
+          $this.addClass("active");
         });
+    });
+  }
 
-	}
+  // Events
 
-
-	// Events
-
-	if ($masonryContainer.length) {
-		$masonryContainer.each(function() {
-			init($(this));
-		})
-	}
-
+  if ($masonryContainer.length) {
+    $masonryContainer.each(function() {
+      init($(this));
+    });
+  }
 })();

@@ -2,95 +2,91 @@
 // Spark chart
 //
 
-'use strict';
+"use strict";
 
 var SparkChart = (function() {
+  // Variables
 
-	// Variables
+  var $chart = $('[data-toggle="spark-chart"]');
 
-	var $chart = $('[data-toggle="spark-chart"]');
+  // Methods
+  function init($this) {
+    // Options
+    var options = {
+      chart: {
+        width: "100%",
+        sparkline: {
+          enabled: true
+        }
+      },
+      series: [],
+      labels: [],
+      stroke: {
+        width: 2,
+        curve: "smooth"
+      },
+      markers: {
+        size: 0
+      },
+      colors: [],
+      tooltip: {
+        fixed: {
+          enabled: false
+        },
+        x: {
+          show: false
+        },
+        y: {
+          title: {
+            formatter: function(e) {
+              return "";
+            }
+          }
+        },
+        marker: {
+          show: !1
+        }
+      }
+    };
 
-	// Methods
-	function init($this) {
+    // Get data from data attributes
+    var dataset = $this.data().dataset,
+      labels = $this.data().labels,
+      color = $this.data().color,
+      height = $this.data().height,
+      type = $this.data().type;
 
-        // Options
-		var options = {
-			chart: {
-                width: '100%',
-				sparkline: {
-					enabled: true
-				}
-			},
-			series: [],
-			labels: [],
-			stroke: {
-				width: 2,
-				curve: "smooth"
-			},
-			markers: {
-				size: 0
-			},
-            colors: [],
-			tooltip: {
-				fixed: {
-					enabled: false
-				},
-				x: {
-					show: false
-				},
-				y: {
-					title: {
-						formatter: function(e) {
-							return ""
-						}
-					}
-				},
-				marker: {
-					show: !1
-				}
-			}
-		}
+    // Inject synamic properties
+    options.series = [
+      {
+        data: dataset
+      }
+    ];
 
-        // Get data from data attributes
-        var dataset = $this.data().dataset,
-			labels = $this.data().labels,
-            color = $this.data().color,
-            height = $this.data().height,
-            type = $this.data().type;
+    if (labels) {
+      options.labels = [labels];
+    }
 
-        // Inject synamic properties
-        options.series = [{
-            data: dataset
-        }];
+    options.colors = [PurposeStyle.colors.theme[color]];
 
-		if(labels) {
-			options.labels = [labels];	
-		}
+    options.chart.height = height ? height : 35;
 
-        options.colors = [
-            PurposeStyle.colors.theme[color]
-        ];
+    options.chart.type = type ? type : "line";
 
-        options.chart.height = height ? height : 35;
+    // Init chart
+    var chart = new ApexCharts($this[0], options);
 
-        options.chart.type = type ? type : 'line';
+    // Draw chart
+    setTimeout(function() {
+      chart.render();
+    }, 300);
+  }
 
-        // Init chart
-        var chart = new ApexCharts($this[0], options);
+  // Events
 
-        // Draw chart
-		setTimeout(function(){
-			chart.render();
-		}, 300);
-
-	}
-
-	// Events
-
-	if ($chart.length) {
-		$chart.each(function() {
-            init($(this));
-        });
-	}
-
+  if ($chart.length) {
+    $chart.each(function() {
+      init($(this));
+    });
+  }
 })();

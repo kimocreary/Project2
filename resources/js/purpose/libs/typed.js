@@ -3,46 +3,44 @@
 // text typing animation
 //
 
-'use strict';
+"use strict";
 
 var Typed = (function() {
+  // Variables
 
-	// Variables
+  var typed = ".typed",
+    $typed = $(typed);
 
-	var typed = '.typed',
-		$typed = $(typed);
+  // Methods
 
+  function init($this) {
+    var el = "#" + $this.attr("id"),
+      strings = $this.data("type-this"),
+      strings = strings.split(",");
 
-	// Methods
+    var options = {
+      strings: strings,
+      typeSpeed: 100,
+      backSpeed: 70,
+      loop: true
+    };
 
-	function init($this) {
-		var el = '#' + $this.attr('id'),
-        	strings = $this.data('type-this'),
-			strings = strings.split(',');
+    var animation = new Typed(el, options);
 
-		var options = {
-			strings: strings,
-            typeSpeed: 100,
-            backSpeed: 70,
-            loop: true
-		};
+    inView(el)
+      .on("enter", function() {
+        animation.start();
+      })
+      .on("exit", function() {
+        animation.stop();
+      });
+  }
 
-        var animation = new Typed(el, options);
+  // Events
 
-		inView(el).on('enter', function() {
-			animation.start();
-		}).on('exit', function() {
-			animation.stop();
-		});
-	}
-
-
-	// Events
-
-	if ($typed.length) {
-		$typed.each(function() {
-			init($(this));
-		});
-	}
-
+  if ($typed.length) {
+    $typed.each(function() {
+      init($(this));
+    });
+  }
 })();

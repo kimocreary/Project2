@@ -2,26 +2,22 @@
 // Autosize textarea
 //
 
-'use strict';
+"use strict";
 
 var TextareaAutosize = (function() {
+  // Variables
 
-	// Variables
+  var $textarea = $("[data-toggle=\"autosize\"]");
 
-	var $textarea = $('[data-toggle="autosize"]');
+  // Methods
 
+  function init() {
+    autosize($textarea);
+  }
 
-	// Methods
+  // Events
 
-	function init() {
-		autosize($textarea);
-	}
-
-
-	// Events
-
-	if ($textarea.length) {
-		init();
-	}
-
+  if ($textarea.length) {
+    init();
+  }
 })();

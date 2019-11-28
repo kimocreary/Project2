@@ -2,52 +2,48 @@
 // List.js
 //
 
-'use strict';
+"use strict";
 
 var SortList = (function() {
+  //  //
+  // Variables
+  //  //
 
-	//  //
-	// Variables
-	//  //
+  var $lists = $("[data-toggle=\"list\"]");
+  var $listsSort = $("[data-sort]");
 
-	var $lists = $('[data-toggle="list"]');
-	var $listsSort = $('[data-sort]');
+  //
+  // Methods
+  //
 
+  // Init
+  function init($list) {
+    new List($list.get(0), getOptions($list));
+  }
 
-	//
-	// Methods
-	//
+  // Get options
+  function getOptions($list) {
+    var options = {
+      valueNames: $list.data("list-values"),
+      listClass: $list.data("list-class") ? $list.data("list-class") : "list"
+    };
 
-	// Init
-	function init($list) {
-		new List($list.get(0), getOptions($list));
-	}
+    return options;
+  }
 
-	// Get options
-	function getOptions($list) {
-		var options = {
-			valueNames: $list.data('list-values'),
-			listClass: $list.data('list-class') ? $list.data('list-class') : 'list'
-		}
+  //
+  // Events
+  //
 
-		return options;
-	}
+  // Init
+  if ($lists.length) {
+    $lists.each(function() {
+      init($(this));
+    });
+  }
 
-
-	//
-	// Events
-	//
-
-	// Init
-	if ($lists.length) {
-		$lists.each(function() {
-			init($(this));
-		});
-	}
-
-	// Sort
-	$listsSort.on('click', function() {
-		return false;
-	});
-
+  // Sort
+  $listsSort.on("click", function() {
+    return false;
+  });
 })();

@@ -2,37 +2,30 @@
 // Sticky
 //
 
-'use strict';
+"use strict";
 
 var SvgInjector = (function() {
+  //
+  // Variables
+  //
 
-	//
-	// Variables
-	//
+  var $svg = document.querySelectorAll("img.svg-inject");
 
-	var $svg = document.querySelectorAll('img.svg-inject');
+  //
+  // Methods
+  //
 
+  function init($this) {
+    var options = {};
 
-	//
-	// Methods
-	//
+    SVGInjector($this);
+  }
 
-	function init($this) {
+  //
+  // Events
+  //
 
-		var options = {
-
-		};
-
-		SVGInjector($this)
-	}
-
-
-	//
-	// Events
-	//
-
-	if ($svg.length) {
-		init($svg);
-	}
-
+  if ($svg.length) {
+    init($svg);
+  }
 })();

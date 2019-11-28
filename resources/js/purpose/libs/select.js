@@ -2,48 +2,53 @@
 // Select2
 //
 
-'use strict';
+"use strict";
 
 var Select = (function() {
+  // Variables
 
-	// Variables
+  var $select = $('[data-toggle="select"]');
 
-	var $select = $('[data-toggle="select"]');
+  // Methods
 
-	// Methods
+  function init($this) {
+    var options = {};
 
-	function init($this) {
-		var options = {};
+    $this.select2(options);
+  }
 
-		$this.select2(options);
-	}
+  function formatAvatar(avatar) {
+    if (!avatar.id) {
+      return avatar.text;
+    }
 
-	function formatAvatar(avatar) {
-		if (!avatar.id) {
-			return avatar.text;
-		}
+    var $option = $(avatar.element);
+    var optionAvatar = $option.data("avatar-src");
+    var output;
 
-		var $option = $(avatar.element);
-		var optionAvatar = $option.data('avatar-src');
-		var output;
+    if (optionAvatar) {
+      output = $(
+        '<span class="avatar avatar-xs mr-3"><img class="avatar-img rounded-circle" src="' +
+          optionAvatar +
+          '" alt="' +
+          avatar.text +
+          '"></span><span>' +
+          avatar.text +
+          "</span>"
+      );
+    } else {
+      output = avatar.text;
+    }
 
-		if (optionAvatar) {
-			output = $('<span class="avatar avatar-xs mr-3"><img class="avatar-img rounded-circle" src="' + optionAvatar + '" alt="' + avatar.text + '"></span><span>' + avatar.text + '</span>');
-		} else {
-			output = avatar.text;
-		}
+    return output;
+  }
 
-		return output;
-	}
+  // Events
 
-	// Events
-
-	if ($select.length) {
-
-		// Init selects
-		$select.each(function() {
-			init($(this));
-		});
-	}
-
+  if ($select.length) {
+    // Init selects
+    $select.each(function() {
+      init($(this));
+    });
+  }
 })();

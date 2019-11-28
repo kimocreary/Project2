@@ -2,148 +2,141 @@
 // Navbar
 //
 
-'use strict';
+"use strict";
 
 var NavbarVertical = (function() {
+  // Variables
 
-	// Variables
+  var $nav = $(
+    ".navbar-vertical .navbar-nav, .navbar-vertical .navbar-nav .nav"
+  );
+  var $collapse = $(".navbar-vertical .collapse");
+  var $dropdown = $(".navbar-vertical .dropdown");
 
-    var $nav = $('.navbar-vertical .navbar-nav, .navbar-vertical .navbar-nav .nav');
-	var $collapse = $('.navbar-vertical .collapse');
-    var $dropdown = $('.navbar-vertical .dropdown');
+  // Methods
 
-	// Methods
+  function accordion($this) {
+    $this
+      .closest($nav)
+      .find($collapse)
+      .not($this)
+      .collapse("hide");
+  }
 
-	function accordion($this) {
-		$this.closest($nav).find($collapse).not($this).collapse('hide');
-	}
+  function closeDropdown($this) {
+    var $dropdownMenu = $this.find(".dropdown-menu");
 
-    function closeDropdown($this) {
-        var $dropdownMenu = $this.find('.dropdown-menu');
+    $dropdownMenu.addClass("close");
 
-        $dropdownMenu.addClass('close');
+    setTimeout(function() {
+      $dropdownMenu.removeClass("close");
+    }, 200);
+  }
 
-    	setTimeout(function() {
-    		$dropdownMenu.removeClass('close');
-    	}, 200);
-	}
+  // Events
 
+  $collapse.on({
+    "show.bs.collapse": function() {
+      accordion($(this));
+    }
+  });
 
-	// Events
-
-	$collapse.on({
-		'show.bs.collapse': function() {
-			accordion($(this));
-		}
-	})
-
-	$dropdown.on({
-		'hide.bs.dropdown': function() {
-			closeDropdown($(this));
-		}
-	})
-
+  $dropdown.on({
+    "hide.bs.dropdown": function() {
+      closeDropdown($(this));
+    }
+  });
 })();
 
 var NavbarCollapse = (function() {
+  // Variables
 
-	// Variables
+  var $nav = $("#navbar-main"),
+    $collapse = $("#navbar-main-collapse"),
+    $navTop = $("#navbar-top-main");
 
-    var $nav = $('#navbar-main'),
-	    $collapse = $('#navbar-main-collapse'),
-        $navTop = $('#navbar-top-main');
+  // Methods
 
+  function showNavbarCollapse($this) {
+    $nav.addClass("navbar-collapsed");
+    $navTop.addClass("navbar-collapsed");
+    $("#header-main").addClass("header-collapse-show");
+    $("body").addClass("modal-open");
+  }
 
-	// Methods
+  function hideNavbarCollapse($this) {
+    $this.removeClass("collapsing").addClass("collapsing-out");
+    $nav.removeClass("navbar-collapsed").addClass("navbar-collapsed-out");
+    $navTop.removeClass("navbar-collapsed").addClass("navbar-collapsed-out");
+  }
 
-	function showNavbarCollapse($this) {
-        $nav.addClass('navbar-collapsed');
-        $navTop.addClass('navbar-collapsed');
-        $('#header-main').addClass('header-collapse-show');
-        $('body').addClass('modal-open');
-	}
+  function hiddenNavbarCollapse($this) {
+    $this.removeClass("collapsing-out");
+    $nav.removeClass("navbar-collapsed-out");
+    $navTop.removeClass("navbar-collapsed-out");
+    $("#header-main").removeClass("header-collapse-show");
+    $("body").removeClass("modal-open");
+  }
 
-    function hideNavbarCollapse($this) {
-        $this.removeClass('collapsing').addClass('collapsing-out');
-        $nav.removeClass('navbar-collapsed').addClass('navbar-collapsed-out');
-        $navTop.removeClass('navbar-collapsed').addClass('navbar-collapsed-out');
-	}
+  // Events
 
-    function hiddenNavbarCollapse($this) {
-        $this.removeClass('collapsing-out');
-        $nav.removeClass('navbar-collapsed-out');
-        $navTop.removeClass('navbar-collapsed-out');
-        $('#header-main').removeClass('header-collapse-show');
-        $('body').removeClass('modal-open');
-	}
+  if ($collapse.length) {
+    $collapse.on({
+      "show.bs.collapse": function() {
+        showNavbarCollapse($collapse);
+      }
+    });
 
+    $collapse.on({
+      "hide.bs.collapse": function() {
+        hideNavbarCollapse($collapse);
+      }
+    });
 
-	// Events
-
-    if ($collapse.length) {
-    	$collapse.on({
-    		'show.bs.collapse': function() {
-    			showNavbarCollapse($collapse);
-    		}
-    	})
-
-        $collapse.on({
-    		'hide.bs.collapse': function() {
-                hideNavbarCollapse($collapse);
-    		}
-    	})
-
-        $collapse.on({
-    		'hidden.bs.collapse': function() {
-                hiddenNavbarCollapse($collapse);
-    		}
-    	})
-    }
-
+    $collapse.on({
+      "hidden.bs.collapse": function() {
+        hiddenNavbarCollapse($collapse);
+      }
+    });
+  }
 })();
-
 
 //
 // Sticky Navbar
 //
 
 var NavbarSticky = (function() {
+  // Variables
 
-	// Variables
+  var $nav = $(".navbar-sticky");
 
-	var $nav = $('.navbar-sticky');
+  // Methods
 
+  function init($this) {
+    var scrollTop = $(window).scrollTop(); // our current vertical position from the top
 
-	// Methods
+    // if we've scrolled more than the navigation, change its position to fixed to stick to top,
+    // otherwise change it back to relative
+    if (scrollTop > navOffsetTop + 200) {
+      $this.addClass("sticky");
+    } else {
+      $this.removeClass("sticky");
+    }
+  }
 
-	function init($this) {
+  // Events
 
-		var scrollTop = $(window).scrollTop(); // our current vertical position from the top
+  if ($nav.length) {
+    var navOffsetTop = $nav.offset().top;
 
-		// if we've scrolled more than the navigation, change its position to fixed to stick to top,
-		// otherwise change it back to relative
-		if (scrollTop > (navOffsetTop + 200)) {
-			$this.addClass('sticky');
-		} else {
-			$this.removeClass('sticky');
-		}
-	}
+    // Init sticky navbar
+    init($nav);
 
-
-	// Events
-
-	if ($nav.length) {
-
-        var navOffsetTop = $nav.offset().top;
-
-		// Init sticky navbar
-		init($nav);
-
-		// re-calculate stickyness on scroll
-		$(window).on({
-			'scroll': function() {
-				init($nav);
-			}
-		})
-	}
+    // re-calculate stickyness on scroll
+    $(window).on({
+      scroll: function() {
+        init($nav);
+      }
+    });
+  }
 })();

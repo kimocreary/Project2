@@ -2,47 +2,45 @@
 // Quill.js
 //
 
-'use strict';
+"use strict";
 
 var QuillEditor = (function() {
+  // Variables
 
-	// Variables
+  var $quill = $('[data-toggle="quill"]');
 
-	var $quill = $('[data-toggle="quill"]');
+  // Methods
 
+  function init($this) {
+    // Get placeholder
+    var placeholder = $this.data("quill-placeholder");
 
-	// Methods
+    // Init editor
+    var quill = new Quill($this.get(0), {
+      modules: {
+        toolbar: [
+          ["bold", "italic"],
+          ["link", "blockquote", "code", "image"],
+          [
+            {
+              list: "ordered"
+            },
+            {
+              list: "bullet"
+            }
+          ]
+        ]
+      },
+      placeholder: placeholder,
+      theme: "snow"
+    });
+  }
 
-	function init($this) {
+  // Events
 
-		// Get placeholder
-		var placeholder = $this.data('quill-placeholder');
-
-		// Init editor
-		var quill = new Quill($this.get(0), {
-			modules: {
-				toolbar: [
-					['bold', 'italic'],
-					['link', 'blockquote', 'code', 'image'],
-					[{
-						'list': 'ordered'
-					}, {
-						'list': 'bullet'
-					}]
-				]
-			},
-			placeholder: placeholder,
-			theme: 'snow'
-		});
-
-	}
-
-	// Events
-
-	if ($quill.length) {
-		$quill.each(function() {
-			init($(this));
-		});
-	}
-
+  if ($quill.length) {
+    $quill.each(function() {
+      init($(this));
+    });
+  }
 })();

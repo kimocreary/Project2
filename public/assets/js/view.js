@@ -17,14 +17,13 @@ $(document).ready(function() {
     for (var i = 0; i < tasks.length; i++) {
       taskRows.push(createNewRow(tasks[i]));
     }
-
     $taskContainer.prepend(taskRows);
   }
 
   function insertTask(event) {
     event.preventDefault();
     var task = {
-      taskName: $newTaskInput.val().trim()
+      name: $newTaskInput.val().trim()
     };
 
     $.post("/api/tasks", task, getTasks);
@@ -38,21 +37,21 @@ $(document).ready(function() {
     });
   }
 
-  function updateTask(task) {
-    $.ajax({
-      method: "PUT",
-      url: "/api/tasks",
-      data: task
-    }).then(getTasks);
-  }
+  // function updateTask(task) {
+  // 	$.ajax({
+  // 		method: 'PUT',
+  // 		url: '/api/tasks',
+  // 		data: task,
+  // 	}).then(getTasks);
+  // }
 
   function createNewRow(task) {
     var $newInputRow = $(
       [
         "<li class='list-group-item task-item'>",
         "<span> task: ",
-        task.taskName,
-        "</span>",
+        task.name,
+        "</span><br>",
         "</li>"
       ].join("")
     );

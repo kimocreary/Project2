@@ -2,50 +2,48 @@
 // Pricing
 //
 
-'use strict';
-
+"use strict";
 
 var Pricing = (function() {
+  // Variables
 
-	// Variables
+  var $pricingContainer = $(".pricing-container"),
+    $btn = $(".pricing-container button[data-pricing]");
 
-	var $pricingContainer = $('.pricing-container'),
-		$btn = $('.pricing-container button[data-pricing]');
+  // Methods
 
+  function init($this) {
+    var a = $this.data("pricing"),
+      b = $this.parents(".pricing-container"),
+      c = $("." + b.attr("class") + " [data-pricing-value]");
 
-	// Methods
+    if (!$this.hasClass("active")) {
+      // Toggle active classes for monthly/yearly buttons
+      $("." + b.attr("class") + " button[data-pricing]").removeClass("active");
+      $this.addClass("active");
 
-	function init($this) {
-        var a = $this.data('pricing'),
-            b = $this.parents('.pricing-container'),
-            c = $('.'+b.attr('class')+' [data-pricing-value]');
+      // Change price values
+      c.each(function() {
+        var new_val = $(this).data("pricing-value");
+        var old_val = $(this)
+          .find("span.price")
+          .text();
 
+        $(this)
+          .find("span.price")
+          .text(new_val);
+        $(this).data("pricing-value", old_val);
+      });
+    }
+  }
 
-        if(!$this.hasClass('active')) {
-            // Toggle active classes for monthly/yearly buttons
-            $('.'+b.attr('class')+' button[data-pricing]').removeClass('active');
-            $this.addClass('active');
+  // Events
 
-            // Change price values
-            c.each(function() {
-                var new_val = $(this).data('pricing-value');
-                var old_val = $(this).find('span.price').text();
-
-                $(this).find('span.price').text(new_val);
-                $(this).data('pricing-value', old_val);
-            });
-        }
-	}
-
-
-	// Events
-
-	if ($pricingContainer.length) {
-		$btn.on({
-    		'click': function() {
-    			init($(this));
-    		}
-    	})
-	}
-
+  if ($pricingContainer.length) {
+    $btn.on({
+      click: function() {
+        init($(this));
+      }
+    });
+  }
 })();

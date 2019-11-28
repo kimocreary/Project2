@@ -2,58 +2,61 @@
 // Card
 //
 
-'use strict';
+"use strict";
 
 // Card actions
 
 var CardActions = (function() {
+  // Variables
 
-	// Variables
+  var $card = $(".card"),
+    actions = ".card-product-actions";
 
-	var $card = $(".card"),
-		actions = '.card-product-actions';
+  // Methods
 
+  function show($this) {
+    var $el = $this.find(actions),
+      animation = $el.data("animation-in");
 
-	// Methods
+    if ($el.length) {
+      $el.addClass("in animated " + animation);
+      $el.one(
+        "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",
+        function() {
+          $el.removeClass("animated " + animation);
+        }
+      );
+    }
+  }
 
-	function show($this) {
-		var $el = $this.find(actions),
-        	animation = $el.data('animation-in');
+  function hide($this) {
+    var $el = $this.find(actions),
+      animation = $el.data("animation-out");
 
-        if ($el.length) {
-            $el.addClass('in animated ' + animation);
-            $el.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-                $el.removeClass('animated ' + animation);
-            });
-		}
-	}
+    if ($el.length) {
+      $el.addClass("animated " + animation);
+      $el.one(
+        "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",
+        function() {
+          $el.removeClass("in animated " + animation);
+        }
+      );
+    }
+  }
 
-	function hide($this) {
-		var $el = $this.find(actions),
-			animation = $el.data('animation-out');
+  // Events
 
-		if ($el.length) {
-			$el.addClass('animated ' + animation);
-			$el.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-				$el.removeClass('in animated ' + animation);
-			});
-		}
-	}
+  if ($card.length && $(actions).length) {
+    $card.on({
+      mouseenter: function() {
+        show($(this));
+      }
+    });
 
-	// Events
-
-	if ($card.length && $(actions).length) {
-		$card.on({
-    		'mouseenter': function() {
-    			show($(this));
-    		}
-    	})
-
-		$card.on({
-    		'mouseleave': function() {
-    			hide($(this));
-    		}
-    	})
-	}
-
+    $card.on({
+      mouseleave: function() {
+        hide($(this));
+      }
+    });
+  }
 })();

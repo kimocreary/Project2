@@ -1,4 +1,5 @@
-$(document).ready(function() {
+"use strict";
+$(document).ready(function () {
   var loginForm = $("form.login");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
