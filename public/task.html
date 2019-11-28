@@ -10,7 +10,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
   <!-- https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
   <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
   <body>
@@ -18,7 +18,7 @@
       <div class="container">
         <h1 class="display-4">TaskR</h1>
         <p class="lead">Collaborating Made Easy</p>
-      </div>
+        
       <div class="container">
         <table class="table">
           <thead class="thead-dark">
@@ -37,15 +37,13 @@
       </div>
     </div>
     <div class="container">
-      <div>All Tasks</div>
-      <div class="allTasks"></div>
-      
       <div class="border border-primary">
         <form>
           <div class="form-group">
             <label for="taskName">Task</label>
             <input
               type="text"
+              name= "name"
               class="form-control"
               id="taskName"
               placeholder="What task needs to get done?"
@@ -55,6 +53,7 @@
             <label for="developer">Priority</label>
             <input
               type="text"
+              name= "email"
               class="form-control"
               id="priorityLevel"
               placeholder="1-10"
@@ -64,6 +63,7 @@
             <label for="expectedDate">Expected Due Date</label>
             <input
               type="text"
+              name= "date"
               class="form-control"
               id="expectedDate"
               placeholder="mm/dd/yyy"
@@ -86,12 +86,47 @@
           <input type="text" class="form-control" id="completionDate" placeholder="5">
         </div> -->
 
-        <button type="submit" id="submitbutton" class="btn btn-primary">Submit</button>
+        <button type="submit" id="submitbutton" class="btn btn-primary">Submit</button> 
+       
       </form>
+      <br/>
+  <table class="table table-bordered data-table">
+    <thead>
+      <th>Task Name</th>
+      <th>priority Level</th>
+      <th>Expected Due Date</th>
+      <th width="200px">Action</th>
+    </thead>
+    <tbody>
+    
+    </tbody>
+  </table>
   </div>
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/javascript/task.js"></script>
+
+    
+    <script type="text/javascript" src="task.js"></script>
+     
+<div class="container">
+
+</div>
+   
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+
+
+
 </html>
