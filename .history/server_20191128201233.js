@@ -3,23 +3,26 @@ var express = require("express");
 var session = require("express-session");
 var passport = require("./config/passport");
 
-var PORT = process.env.PORT || 8080;
-var db = require("./models");
 
 var app = express();
-app.use(express.urlencoded({ extended: true }));
+var PORT = process.env.PORT || 3000;
+var db = require("./models");
+// Middleware
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
-app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-);
-app.use(passport.initialize());
-app.use(passport.session());
 
+// Routes
 require("./routes/api-routes")(app);
 require("./routes/html-routes")(app);
 
-db.sequelize.sync().then(function() {
+var syncOptions = { force: false };
+
+if (process.env.NODE_ENV === "test") {
+  syncOptions.force = true;
+}
+
+db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
@@ -28,3 +31,5 @@ db.sequelize.sync().then(function() {
     );
   });
 });
+
+module.exports = app;

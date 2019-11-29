@@ -16,6 +16,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Routes
 require("./routes/api-routes")(app);
 require("./routes/html-routes")(app);
 
