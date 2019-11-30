@@ -31,31 +31,31 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/home", isAuthenticated, function(req, res) {
+  app.get("/home", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/home.html"));
   });
 
-  app.get("/kanban", isAuthenticated, function(req, res) {
+  app.get("/kanban", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/kanban.html"));
   });
 
-  app.get("/overview", isAuthenticated, function(req, res) {
+  app.get("/overview", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/overview.html"));
   });
 
-  app.get("/portfolio", isAuthenticated, function(req, res) {
+  app.get("/portfolio", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/portfolio.html"));
   });
 
-  app.get("/project", isAuthenticated, function(req, res) {
+  app.get("/project", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/project.html"));
   });
 
-  app.get("/user", isAuthenticated, function(req, res) {
+  app.get("/user", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/user.html"));
   });
 
-  app.get("/tasks", isAuthenticated, function(req, res) {
+  app.get("/tasks", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/task.html"));
   });
 
