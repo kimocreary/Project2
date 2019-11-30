@@ -1,6 +1,9 @@
 require("dotenv").config();
 var express = require("express");
-
+var session = require("express-session");
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
+var bodyParser = require("body-parser");
 var db = require("./models");
 
 var app = express();
@@ -10,6 +13,10 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(session({ secret: "cats", resave: false, saveUninitialized: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routes
 require("./routes/api-routes")(app);

@@ -1,5 +1,5 @@
 "use strict";
-$(document).ready(function () {
+$(document).ready(function() {
   var loginForm = $("form.login");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
@@ -19,7 +19,6 @@ $(document).ready(function () {
     emailInput.val("");
     passwordInput.val("");
   });
-
 
   function loginUser(email, password) {
     $.post("/api/login", {
