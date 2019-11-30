@@ -27,7 +27,6 @@
     <!-- Purpose CSS -->
     <link rel="stylesheet" href="./assets/css/purpose.css" id="stylesheet" />
   </head>
-
   <body class="application application-offset">
     <!-- Application container -->
     <div class="container-fluid container-application">
@@ -36,7 +35,6 @@
         <!-- Page content -->
         <div class="page-content">
           <!-- Modals -->
-
           <!-- Create task modal -->
           <div
             class="modal fade"
@@ -55,26 +53,11 @@
                       </label>
                       <input type="text" class="form-control new-task" />
                     </div>
-                    <div class="form-group" for="taskDescription">
-                      <label class="form-control-label mb-0">
-                        Description
-                      </label>
-                      <textarea
-                        class="form-control"
-                        id="taskDescription"
-                        data-toggle="autosize"
-                        rows="1"
-                      ></textarea>
-                    </div>
                     <div class="form-group">
                       <label class="form-control-label mb-0">
-                        Developer
+                        Task description
                       </label>
-                      <textarea
-                        class="form-control"
-                        data-toggle="autosize"
-                        rows="1"
-                      ></textarea>
+                      <div data-toggle="quill"></div>
                     </div>
                     <div class="form-group">
                       <label class="form-control-label mb-0">
@@ -248,12 +231,9 @@
               </div>
             </div>
             <!-- Card body -->
-            <div class="card-body">
-              <h5 class="mb-3">Project 1</h5>
-              <div class="mb-5 task-container" id="card-list-1">
-                <!-- Empty container -->
-                <span class="empty-container" data-placeholder="Empty"></span>
-              </div>
+            <div class="card-body task-container" id="card-list-1">
+              <!-- Empty container -->
+              <span class="empty-container" data-placeholder="Empty"></span>
             </div>
           </div>
         </div>
@@ -264,6 +244,7 @@
     <script src="./assets/js/purpose.core.js"></script>
     <!-- Page JS -->
     <script src="./assets/libs/dragula/dist/dragula.min.js"></script>
+    <script src="./assets/libs/quill/dist/quill.min.js"></script>
     <!-- <script src="./assets/libs/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script> -->
     <!-- <script src="./assets/libs/select2/dist/js/select2.min.js"></script>
   <script src="./assets/libs/jquery-mask-plugin/dist/jquery.mask.min.js"></script> -->

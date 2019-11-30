@@ -47,13 +47,16 @@ $(document).ready(function() {
 
   function createNewRow(task) {
     var $newInputRow = $(
-      [
-        "<li class='list-group-item task-item'>",
-        "<span> task: ",
-        task.name,
-        "</span><br>",
-        "</li>"
-      ].join("")
+      `<div class="card card-progress border shadow-none draggable-item mb-0">
+      <div class="progress">
+        <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div class="card-body row align-items-center">
+        <div class="col-sm-6">
+          <a class="h6" href="#modal-task-view" data-toggle="modal">${task.name}</a>
+        </div>
+      </div>
+    </div>`
     );
 
     $newInputRow.data("task", task);
