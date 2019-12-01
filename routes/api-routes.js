@@ -47,9 +47,11 @@ module.exports = function(app) {
   app.post("/api/tasks", function(req, res) {
     db.Task.create({
       name: req.body.name,
+      priority: req.body.priority,
       dueDate: req.body.dueDate,
       developer: req.body.developer,
-      description: req.body.description
+      description: req.body.description,
+      completionDate: req.body.completionDate
     })
       .then(function(dbTask) {
         res.json(dbTask);
