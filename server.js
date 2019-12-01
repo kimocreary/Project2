@@ -2,7 +2,6 @@ require("dotenv").config();
 var express = require("express");
 var session = require("express-session");
 var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
 var bodyParser = require("body-parser");
 var db = require("./models");
 

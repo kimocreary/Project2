@@ -1,6 +1,12 @@
 $(document).ready(function() {
   var $newTaskInput = $(".new-task");
 
+  var $newDueDate = $(".new-dueDate");
+
+  var $newDescription = $(".new-description");
+
+  var $newDeveloper = $(".new-developer");
+
   var $taskContainer = $(".task-container");
 
   $(document).on("submit", "#task-form", insertTask);
@@ -17,17 +23,27 @@ $(document).ready(function() {
     for (var i = 0; i < tasks.length; i++) {
       taskRows.push(createNewRow(tasks[i]));
     }
+    
     $taskContainer.prepend(taskRows);
   }
 
-  function insertTask(event) {
+  function insertTask (event) {
+
     event.preventDefault();
+
     var task = {
-      name: $newTaskInput.val().trim()
+      name: $newTaskInput.val().trim(),
+      description: $newDescription.val().trim(),
+      developer: $newDeveloper.val().trim(),
+      dueDate: $newDueDate.val()
     };
 
     $.post("/api/tasks", task, getTasks);
+
     $newTaskInput.val("");
+    $newDescription.val("");
+    $newDeveloper.val("");
+    $newDueDate.val("");
   }
 
   function getTasks() {
@@ -53,7 +69,12 @@ $(document).ready(function() {
       </div>
       <div class="card-body row align-items-center">
         <div class="col-sm-6">
+          <p>${task.id}</p>
           <a class="h6" href="#modal-task-view" data-toggle="modal">${task.name}</a>
+          <p>${task.createdAt}</p>
+          <p>${task.dueDate}</p>
+          <p>${task.description}</p>
+          <p>${task.developer}</p>
         </div>
       </div>
     </div>`

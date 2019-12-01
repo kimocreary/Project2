@@ -37,6 +37,7 @@ module.exports = function(app) {
       });
     }
   });
+
   app.get("/api/tasks/", function(req, res) {
     db.Task.findAll({}).then(function(dbTask) {
       res.json(dbTask);
@@ -45,7 +46,10 @@ module.exports = function(app) {
 
   app.post("/api/tasks", function(req, res) {
     db.Task.create({
-      name: req.body.name
+      name: req.body.name,
+      dueDate: req.body.dueDate,
+      developer: req.body.developer,
+      description: req.body.description
     })
       .then(function(dbTask) {
         res.json(dbTask);
@@ -54,23 +58,4 @@ module.exports = function(app) {
         res.json(err);
       });
   });
-
-  // app.put('/api/tasks', function(req, res) {
-  // 	db.Task.update(
-  // 		{
-  // 			devoured: req.body.devoured,
-  // 		},
-  // 		{
-  // 			where: {
-  // 				id: req.body.id,
-  // 			},
-  // 		}
-  // 	)
-  // 		.then(function(dbTask) {
-  // 			res.json(dbTask);
-  // 		})
-  // 		.catch(function(err) {
-  // 			res.json(err);
-  // 		});
-  // });
 };
