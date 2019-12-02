@@ -5,6 +5,7 @@ $(document).ready(function() {
     d = $(".new-developer"),
     t = $(".new-completionDate"),
     i = $(".task-container");
+    $(document).on("click", "button.delete", deleteTask);
   $(document).on("submit", "#task-form", function(i) {
     i.preventDefault();
     var o = {
@@ -35,6 +36,14 @@ $(document).ready(function() {
         })();
     });
   }
+  function deleteTask(event) {
+    event.stopPropagation();
+    var id = $(this).data("id");
+    $.ajax({
+      method: "DELETE",
+      url: "/api/tasks/" + id
+    }).then(l);
+  }
   function s(a) {
     var n = $(
       `<div class="card card-progress border shadow-none draggable-item mb-0">\n <div class="card-body row align-items-center">\n        <div class="col-sm-6">\n          <a class="h6" href="#modal-task-view-${
@@ -53,19 +62,19 @@ $(document).ready(function() {
         a.completionDate
       }<br></div>\n          <div class="modal-footer align-items-center">\n<button
       type="button"
-      class="btn btn-sm btn-primary rounded-pill mr-auto update"
+      class="update btn btn-sm btn-primary rounded-pill mr-auto"
     >
       Update
     </button>
     <button
       type="button"
-      class="btn btn-sm btn-warning rounded-pill mr-auto complete"
+      class="complete btn btn-sm btn-warning rounded-pill mr-auto"
     >
       Complete
     </button>
     <button
       type="button"
-      class="btn btn-sm btn-danger rounded-pill mr-auto delete"
+      class="delete btn btn-sm btn-danger rounded-pill mr-auto"
     >
       Delete
     </button>
@@ -77,6 +86,7 @@ $(document).ready(function() {
       Close
     </button>          </div>\n        </div>\n      </div>\n      </div>\n\n\n      `
     );
+    $newInputRow.find("button.delete").data("id", task.id);
     return n.data("task", a), n;
   }
   l();

@@ -27,6 +27,15 @@ module.exports = function(t) {
         o.json(t);
       });
     }),
+    t.delete("/api/tasks/:id", function(t, o) {
+      db.Task.destroy({
+        where: {
+          id: t.params.id
+        }
+      }).then(function(t) {
+        o.json(t);
+      });
+    });
     t.post("/api/tasks", function(t, o) {
       db.Task.create({
         name: t.body.name,
