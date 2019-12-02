@@ -1,0 +1,227 @@
+CREATE DATABASE  IF NOT EXISTS `treyger` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `treyger`;
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+--
+-- Host: localhost    Database: treyger
+-- ------------------------------------------------------
+-- Server version	5.7.26
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `customer`
+--
+
+DROP TABLE IF EXISTS `customer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `customer` (
+  `SSN` int(11) NOT NULL AUTO_INCREMENT,
+  `ORDERNO` int(11) DEFAULT NULL,
+  `NAMEC` varchar(256) DEFAULT NULL,
+  `PHONEC` varchar(256) DEFAULT NULL,
+  `EMAILC` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`SSN`),
+  KEY `FK_CUSTOMER_ORDER_CUS_ORDER` (`ORDERNO`),
+  CONSTRAINT `FK_CUSTOMER_ORDER_CUS_ORDER` FOREIGN KEY (`ORDERNO`) REFERENCES `order` (`ORDERNO`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customer`
+--
+
+LOCK TABLES `customer` WRITE;
+/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (1,10,'SANTIAGO','04146137172','SANTI@GMAIL.COM'),(2,6,'SEBASTIAN','04120666203','SEBAS@HOTMAIL.COM'),(3,7,'RICARDO','04166662090','RICARDO@YAHOO.ES'),(4,8,'RICHARD','04125268596','RICHARD@GMAIL.COM'),(5,9,'JOSE','0415874586','JOSE@HOTMAIL.COM');
+/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `employee`
+--
+
+DROP TABLE IF EXISTS `employee`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `employee` (
+  `EMPID` int(11) NOT NULL AUTO_INCREMENT,
+  `VID` int(11) DEFAULT NULL,
+  `FIRSTNAME` varchar(256) DEFAULT NULL,
+  `LASTNAME` varchar(256) DEFAULT NULL,
+  `TITLE` varchar(256) DEFAULT NULL,
+  `YEARS` int(11) DEFAULT NULL,
+  PRIMARY KEY (`EMPID`),
+  KEY `FK_EMPLOYEE_VENDOR_EM_VENDOR` (`VID`),
+  CONSTRAINT `FK_EMPLOYEE_VENDOR_EM_VENDOR` FOREIGN KEY (`VID`) REFERENCES `vendor` (`VID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employee`
+--
+
+LOCK TABLES `employee` WRITE;
+/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+INSERT INTO `employee` VALUES (1,3,'Gerald','Devis','Mrs.',32),(2,4,'Jose','Pesantez','Mrs.',32),(3,2,'Aymara','Contreras','Ms.',59),(4,5,'Gaby','Torres','Ms.',26),(5,1,'Ramon','Mendoza','Mrs.',32);
+/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `item`
+--
+
+DROP TABLE IF EXISTS `item`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `item` (
+  `SKU` int(11) NOT NULL AUTO_INCREMENT,
+  `VID` int(11) NOT NULL,
+  `NAMEI` varchar(256) DEFAULT NULL,
+  `PRICE` float DEFAULT NULL,
+  PRIMARY KEY (`SKU`),
+  KEY `FK_ITEM_VENDOR_IT_VENDOR` (`VID`),
+  CONSTRAINT `FK_ITEM_VENDOR_IT_VENDOR` FOREIGN KEY (`VID`) REFERENCES `vendor` (`VID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `item`
+--
+
+LOCK TABLES `item` WRITE;
+/*!40000 ALTER TABLE `item` DISABLE KEYS */;
+INSERT INTO `item` VALUES (1,1,'WATER',0.5),(2,2,'COCACOLA',1),(3,3,'PIZZA MEDIUM',25),(4,4,'PIZZA SMALL',20),(5,5,'PIZZA BIG',30);
+/*!40000 ALTER TABLE `item` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `order`
+--
+
+DROP TABLE IF EXISTS `order`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `order` (
+  `ORDERNO` int(11) NOT NULL AUTO_INCREMENT,
+  `SSN` int(11) NOT NULL,
+  `DATE` date DEFAULT NULL,
+  PRIMARY KEY (`ORDERNO`),
+  KEY `FK_ORDER_ORDER_CUS_CUSTOMER` (`SSN`),
+  CONSTRAINT `FK_ORDER_ORDER_CUS_CUSTOMER` FOREIGN KEY (`SSN`) REFERENCES `customer` (`SSN`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order`
+--
+
+LOCK TABLES `order` WRITE;
+/*!40000 ALTER TABLE `order` DISABLE KEYS */;
+INSERT INTO `order` VALUES (6,1,'2019-11-13'),(7,2,'2019-11-13'),(8,3,'2019-11-14'),(9,4,'2019-11-14'),(10,5,'2019-11-12');
+/*!40000 ALTER TABLE `order` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `order_emp`
+--
+
+DROP TABLE IF EXISTS `order_emp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `order_emp` (
+  `EMPID` int(11) NOT NULL,
+  `ORDERNO` int(11) NOT NULL,
+  PRIMARY KEY (`EMPID`,`ORDERNO`),
+  KEY `FK_ORDER_EM_ORDER_EMP_ORDER` (`ORDERNO`),
+  CONSTRAINT `FK_ORDER_EM_ORDER_EMP_EMPLOYEE` FOREIGN KEY (`EMPID`) REFERENCES `employee` (`EMPID`),
+  CONSTRAINT `FK_ORDER_EM_ORDER_EMP_ORDER` FOREIGN KEY (`ORDERNO`) REFERENCES `order` (`ORDERNO`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_emp`
+--
+
+LOCK TABLES `order_emp` WRITE;
+/*!40000 ALTER TABLE `order_emp` DISABLE KEYS */;
+INSERT INTO `order_emp` VALUES (4,6),(1,7),(2,8),(5,9),(3,10);
+/*!40000 ALTER TABLE `order_emp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `order_item`
+--
+
+DROP TABLE IF EXISTS `order_item`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `order_item` (
+  `SKU` int(11) NOT NULL,
+  `ORDERNO` int(11) NOT NULL,
+  PRIMARY KEY (`SKU`,`ORDERNO`),
+  KEY `FK_ORDER_IT_ORDER_ITE_ORDER` (`ORDERNO`),
+  CONSTRAINT `FK_ORDER_IT_ORDER_ITE_ITEM` FOREIGN KEY (`SKU`) REFERENCES `item` (`SKU`),
+  CONSTRAINT `FK_ORDER_IT_ORDER_ITE_ORDER` FOREIGN KEY (`ORDERNO`) REFERENCES `order` (`ORDERNO`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_item`
+--
+
+LOCK TABLES `order_item` WRITE;
+/*!40000 ALTER TABLE `order_item` DISABLE KEYS */;
+INSERT INTO `order_item` VALUES (2,6),(4,7),(5,8),(3,9),(1,10);
+/*!40000 ALTER TABLE `order_item` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vendor`
+--
+
+DROP TABLE IF EXISTS `vendor`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `vendor` (
+  `VID` int(11) NOT NULL AUTO_INCREMENT,
+  `EMPID` int(11) NOT NULL,
+  `NAMEV` varchar(256) DEFAULT NULL,
+  `PHONEV` varchar(256) DEFAULT NULL,
+  `EMAILV` varchar(256) DEFAULT NULL,
+  `SIZE` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`VID`),
+  KEY `FK_VENDOR_VENDOR_EM_EMPLOYEE` (`EMPID`),
+  CONSTRAINT `FK_VENDOR_VENDOR_EM_EMPLOYEE` FOREIGN KEY (`EMPID`) REFERENCES `employee` (`EMPID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vendor`
+--
+
+LOCK TABLES `vendor` WRITE;
+/*!40000 ALTER TABLE `vendor` DISABLE KEYS */;
+INSERT INTO `vendor` VALUES (1,1,'Robert','0939730998','robert@gmail.com','small'),(2,2,'Cris Gongora','0984488473','cris@gmail.com','medium'),(3,3,'Daniel Peralta','0987745123','dani@hotmail.com','large'),(4,4,'Carolina Pacheco','0995846287','caro@yahoo.es','small'),(5,5,'Juan Devis','0895481251','jp@gmail.com','large');
+/*!40000 ALTER TABLE `vendor` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-11-14  9:46:39

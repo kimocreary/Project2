@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
@@ -20,7 +19,7 @@
         <p class="lead">Collaborating Made Easy</p>
       </div>
       <div class="container">
-        <table class="table">
+        <table class="table" id="alltasks">
           <thead class="thead-dark">
             <tr>
               <th scope="col">Task</th>
@@ -30,9 +29,11 @@
               <th scope="col">Notes</th>
               <th scope="col">Developer Due Date</th>
               <th scope="col">Completion Date</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody></tbody>
+          <tbody>
+          </tbody>
         </table>
       </div>
     </div>
@@ -87,8 +88,77 @@
       </form>
   </div>
 </div>
+<div class="modal fade" id="edit_task" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog"> 
+       <div class="modal-content">
+           <form class="form-horizontal  form-editcusaggr"  id="edit_task_form">
+          <div class="modal-header _600">
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+             Update Task
+          </div>
+          <div class="modal-body">
+           <div id="error">
+           <!-- error will be shown here ! -->
+           </div>   
+          
+           <div class="form-group row">
+             <label class="col-lg-2 form-control-label">Task:</label>
+             <div class="col-lg-10">
+               <input type="text" class="form-control" id="task_description" name="task_description">
+             </div>
+           </div> 
+           <div class="form-group row">
+             <label class="col-lg-2 form-control-label">Priority:</label>
+             <div class="col-lg-10">
+               <input type="text" class="form-control" id="task_priority" name="task_priority">
+             </div>
+           </div> 
+           <div class="form-group row">
+             <label class="col-lg-2 form-control-label">Target Date:</label>
+             <div class="col-lg-10">
+               <input type="text" class="form-control" id="target_date" name="target_date" placeholder="mm/dd/yyy">
+             </div>
+           </div> 
+           <div class="form-group row">
+             <label class="col-lg-2 form-control-label">Developer:</label>
+             <div class="col-lg-10">
+               <input type="text" class="form-control" id="developer_name" name="developer_name">
+             </div>
+           </div> 
+           <div class="form-group row">
+             <label class="col-lg-2 form-control-label">Notes:</label>
+             <div class="col-lg-10">
+               <input type="text" class="form-control" id="developer_notes" name="developer_notes">
+             </div>
+           </div> 
+           <div class="form-group row">
+             <label class="col-lg-2 form-control-label">Developer Due Date:</label>
+             <div class="col-lg-10">
+               <input type="text" class="form-control" id="developer_duedate" name="developer_duedate" placeholder="mm/dd/yyy">
+             </div>
+           </div> 
+           <div class="form-group row">
+             <label class="col-lg-2 form-control-label">Completion Date:</label>
+             <div class="col-lg-10">
+               <input type="text" class="form-control" id="completion_date" name="completion_date" placeholder="mm/dd/yyy">
+             </div>
+           </div> 
+         
+          </div>
+          <div class="modal-footer">               
+             <button type="button" class="btn btn-line" data-dismiss="modal">Cancel</button>
+             <input type="hidden" name="id" id="edittaskid" value=""> 
+             <button id="btn-edittask" type="submit" class="btn btn-primary">Update Task</button>
+          </div>
+          </form> 
+       </div>
+    </div>
+ </div>
+ 
+</script>
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/javascript/task.js"></script>
 </html>
