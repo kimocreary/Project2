@@ -5,7 +5,6 @@ $(document).ready(function() {
     d = $(".new-developer"),
     t = $(".new-completionDate"),
     i = $(".task-container");
-    $(document).on("click", "button.delete", deleteTask);
   $(document).on("submit", "#task-form", function(i) {
     i.preventDefault();
     var o = {
@@ -35,14 +34,6 @@ $(document).ready(function() {
           i.prepend(a);
         })();
     });
-  }
-  function deleteTask(event) {
-    event.stopPropagation();
-    var id = $(this).data("id");
-    $.ajax({
-      method: "DELETE",
-      url: "/api/tasks/" + id
-    }).then(l);
   }
   function s(a) {
     var n = $(
@@ -86,7 +77,6 @@ $(document).ready(function() {
       Close
     </button>          </div>\n        </div>\n      </div>\n      </div>\n\n\n      `
     );
-    $newInputRow.find("button.delete").data("id", task.id);
     return n.data("task", a), n;
   }
   l();
