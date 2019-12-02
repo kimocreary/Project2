@@ -6,6 +6,7 @@ module.exports = function(l, e) {
     description: { type: e.TEXT, allowNull: !0 },
     dueDate: { type: e.DATE, allowNull: !0, validate: { isDate: !0 } },
     developer: { type: e.STRING, allowNull: !0 },
+    complete: { type: e.BOOLEAN, allowNull: !0 },
     completionDate: { type: e.DATE, allowNull: !0, validate: { isDate: !0 } }
   });
 };

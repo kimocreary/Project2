@@ -32,8 +32,9 @@ module.exports = function(t) {
         name: t.body.name,
         status: t.body.status,
         dueDate: t.body.dueDate,
-        developer: t.body.developer,
         description: t.body.description,
+        developer: t.body.developer,
+        complete: t.body.complete,
         completionDate: t.body.completionDate
       })
         .then(function(t) {
