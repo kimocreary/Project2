@@ -1,0 +1,56 @@
+extends ./layouts/template.pug
+
+block main
+  body.application.application-offset
+    .container-fluid.container-application
+      .main-content.position-relative
+        .page-content
+          .min-vh-100.py-5.d-flex.align-items-center
+            .w-100
+              .row.justify-content-center
+                .col-sm-8.col-lg-5
+                  .card.shadow.zindex-100.mb-0
+                    .card-body.px-md-5.py-5
+                      .mb-5
+                        h6.h3 Login
+                      span.clearfix
+                      form.login(role='form')
+                        .form-group
+                          label.form-control-label Email address
+                          .input-group.input-group-merge
+                            .input-group-prepend
+                              span.input-group-text
+                                i.fas.fa-user
+                            input.form-control#email-input(type='email' placeholder='name@example.com')
+                        .form-group.mb-4
+                          .d-flex.align-items-center.justify-content-between
+                            div
+                              label.form-control-label Password
+                            .mb-2
+                              a.small.text-muted.text-underline--dashed.border-primary(href='#!') Lost password?
+                          .input-group.input-group-merge
+                            .input-group-prepend
+                              span.input-group-text
+                                i.fas.fa-key
+                            input.form-control#password-input(type='password' placeholder='********')
+                            .input-group-append
+                              span.input-group-text
+                                a(href='#' data-toggle='password-text' data-target='#password-input')
+                                  i.fas.fa-eye
+                        .alter.alert-danger#alert(style='display:none' role='alert')
+                          span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+                          span.sr-only Error:
+                          span.msg
+                        .my-4
+                          .custom-control.custom-checkbox.mb-3
+                          .custom-control.custom-checkbox
+                        .mt-4
+                          button.btn.btn-sm.btn-primary.btn-icon.rounded-pill(type='submit')
+                            span.btn-inner--text Sign in
+                            span.btn-inner--icon
+                              i.fas.fa-long-arrow-alt-right
+                    .card-footer.px-md-5
+                      small Not registered?
+                      a.small.font-weight-bold(href='/register')  Create account
+  include ./includes/scripts.pug
+  script(type='text/javascript' src='./assets/js/login.js')

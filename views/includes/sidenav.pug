@@ -1,68 +1,55 @@
 .sidenav#sidenav-main
-  //  Sidenav header
-  .sidenav-header.d-flex.align-items-center
-    a.navbar-brand(href='./index.html')
-      img.navbar-brand-img(src='./assets/img/brand/white.png' alt='...')
-    .ml-auto
-      //  Sidenav toggler
-      .sidenav-toggler.sidenav-toggler-dark.d-md-none(data-action='sidenav-unpin' data-target='#sidenav-main')
-        .sidenav-toggler-inner
-          i.sidenav-toggler-line.bg-white
-          i.sidenav-toggler-line.bg-white
-          i.sidenav-toggler-line.bg-white
-  //  User mini profile
-  .sidenav-user.d-flex.flex-column.align-items-center.justify-content-between.text-center
-    //  Avatar
-    div
-      a.avatar.rounded-circle.avatar-xl(href='#')
-        img(alt='Image placeholder' src='./assets/img/theme/light/team-1-800x800.jpg')
-      .mt-4
-        h5.mb-0.text-white Heather Parker
-        span.d-block.text-sm.text-white.opacity-8.mb-3 Web Architect
-        a.btn.btn-sm.btn-white.btn-icon.rounded-pill.shadow.hover-translate-y-n3(href='#')
-          span.btn-inner--icon
-            i.fas.fa-coins
-          span.btn-inner--text $2.300
-    //  User info
-    //  Actions
-    .w-100.mt-4.actions.d-flex.justify-content-between
-      a.action-item.action-item-lg.text-white.pl-0(href='./application/user/profile.html')
-        i.fas.fa-user
-      a.action-item.action-item-lg.text-white(href='#modal-chat' data-toggle='modal')
-        i.fas.fa-comment-alt
-      a.action-item.action-item-lg.text-white.pr-0(href='./application/shop/invoices.html')
-        i.fas.fa-receipt
-  //  Application nav
-  .nav-application.clearfix
-    a.btn.btn-square.text-sm(href='./application/home.html')
-      span.btn-inner--icon.d-block
-        i.fas.fa-home.fa-2x
-      span.btn-inner--icon.d-block.pt-2 Home
-    a.btn.btn-square.text-sm(href='./application/project/card-listing.html')
-      span.btn-inner--icon.d-block
-        i.fas.fa-project-diagram.fa-2x
-      span.btn-inner--icon.d-block.pt-2 Projects
-    a.btn.btn-square.text-sm(href='./application/task/table-listing.html')
-      span.btn-inner--icon.d-block
-        i.fas.fa-tasks.fa-2x
-      span.btn-inner--icon.d-block.pt-2 Tasks
-    a.btn.btn-square.text-sm(href='./application/task/kanban-board.html')
-      span.btn-inner--icon.d-block
-        i.fas.fa-columns.fa-2x
-      span.btn-inner--icon.d-block.pt-2 Kanban
-    a.btn.btn-square.text-sm(href='./application/user/card-listing.html')
-      span.btn-inner--icon.d-block
-        i.fas.fa-users-cog.fa-2x
-      span.btn-inner--icon.d-block.pt-2 Users
-    a.btn.btn-square.text-sm(href='./application/user/profile.html')
-      span.btn-inner--icon.d-block
-        i.fas.fa-user-ninja.fa-2x
-      span.btn-inner--icon.d-block.pt-2 Profile
-    a.btn.btn-square.text-sm(href='./application/shop/invoices.html')
-      span.btn-inner--icon.d-block
-        i.fas.fa-receipt.fa-2x
-      span.btn-inner--icon.d-block.pt-2 Invoices
-    a.btn.btn-square.text-sm(href='./application/widgets.html')
-      span.btn-inner--icon.d-block
-        i.fas.fa-cogs.fa-2x
-      span.btn-inner--icon.d-block.pt-2 Widgets
+      //  Sidenav header
+      .sidenav-header.d-flex.align-items-center
+        a.navbar-brand(href='/index')
+          img.navbar-brand-img(src='./assets/img/brand/white.png' alt='...')
+        .ml-auto
+          //  Sidenav toggler
+          .sidenav-toggler.sidenav-toggler-dark.d-md-none(data-action='sidenav-unpin' data-target='#sidenav-main')
+            .sidenav-toggler-inner
+              i.sidenav-toggler-line.bg-white
+              i.sidenav-toggler-line.bg-white
+              i.sidenav-toggler-line.bg-white
+      //  User mini profile
+      .sidenav-user.d-flex.flex-column.align-items-center.justify-content-between.text-center
+        //  Avatar
+        div
+          a.avatar.rounded-circle.avatar-xl(href='#')
+            img(alt='Image placeholder' src='./assets/img/theme/light/team-1-800x800.jpg')
+          .mt-4
+            h5.mb-0.text-white Heather Parker
+            span.d-block.text-sm.text-white.opacity-8.mb-3 Web Architect
+      //  Application nav
+      .nav-application.clearfix
+        a.btn.btn-square.text-sm(href='#')
+          span.btn-inner--icon.d-block
+            i.fas.fa-home.fa-2x
+          span.btn-inner--icon.d-block.pt-2 Home
+        a.btn.btn-square.text-sm(href='/project')
+          span.btn-inner--icon.d-block
+            i.fas.fa-project-diagram.fa-2x
+          span.btn-inner--icon.d-block.pt-2 Projects
+        a.btn.btn-square.text-sm(href='/tasks')
+          span.btn-inner--icon.d-block
+            i.fas.fa-tasks.fa-2x
+          span.btn-inner--icon.d-block.pt-2 Tasks
+        a.btn.btn-square.text-sm(href='/kanban')
+          span.btn-inner--icon.d-block
+            i.fas.fa-columns.fa-2x
+          span.btn-inner--icon.d-block.pt-2 Kanban
+        a.btn.btn-square.text-sm(href='/issues')
+          span.btn-inner--icon.d-block
+            i.fas.fa-columns.fa-2x
+          span.btn-inner--icon.d-block.pt-2 Issues
+        a.btn.btn-square.text-sm(href='/users')
+          span.btn-inner--icon.d-block
+            i.fas.fa-users-cog.fa-2x
+          span.btn-inner--icon.d-block.pt-2 Users
+        a.btn.btn-square.text-sm(href='/roadMap')
+          span.btn-inner--icon.d-block
+            i.fas.fa-columns.fa-2x
+          span.btn-inner--icon.d-block.pt-2 Road Map
+        a.btn.btn-square.text-sm(href='/calendar')
+          span.btn-inner--icon.d-block
+            i.fas.fa-columns.fa-2x
+          span.btn-inner--icon.d-block.pt-2 Calendar

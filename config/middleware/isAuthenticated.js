@@ -1,9 +1,1 @@
-"use strict";
-
-module.exports = function(req, res, next) {
-  if (req.user) {
-    return next();
-  }
-
-  return res.redirect("/");
-};
+"use strict";module.exports=function(e,r,t){return e.user?t():r.redirect("/")};

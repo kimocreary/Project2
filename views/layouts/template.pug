@@ -1,11 +1,4 @@
 doctype html
 html(lang="en")
-  head
-    include ../includes/head.pug
-  body.application.application-offset
-    .container-fluid.container-application
-      .main-content.position-relative
-        .page-content
-          block main
-    include ../includes/footer.pug
-    include ../includes/scripts.pug
+  include ../includes/head.pug
+  block main
