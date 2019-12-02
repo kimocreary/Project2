@@ -1,46 +1,46 @@
 "use strict";
 var db = require("../models"),
   passport = require("../config/passport");
-module.exports = function(o) {
-  o.post("/api/login", passport.authenticate("local"), function(o, e) {
-    e.json(o.user);
+module.exports = function(t) {
+  t.post("/api/login", passport.authenticate("local"), function(t, o) {
+    o.json(t.user);
   }),
-    o.post("/api/signup", function(o, e) {
-      db.User.create({ email: o.body.email, password: o.body.password })
+    t.post("/api/signup", function(t, o) {
+      db.User.create({ email: t.body.email, password: t.body.password })
         .then(function() {
-          e.redirect(307, "/api/login");
+          o.redirect(307, "/api/login");
         })
-        .catch(function(o) {
-          e.status(401).json(o);
+        .catch(function(t) {
+          o.status(401).json(t);
         });
     }),
-    o.get("/logout", function(o, e) {
-      o.session.destroy(function(o) {
-        e.redirect("/");
+    t.get("/logout", function(t, o) {
+      t.session.destroy(function(t) {
+        o.redirect("/");
       });
     }),
-    o.get("/api/user_data", function(o, e) {
-      o.user ? e.json({ email: o.user.email, id: o.user.id }) : e.json({});
+    t.get("/api/user_data", function(t, o) {
+      t.user ? o.json({ email: t.user.email, id: t.user.id }) : o.json({});
     }),
-    o.get("/api/tasks/", function(o, e) {
-      db.Task.findAll({}).then(function(o) {
-        e.json(o);
+    t.get("/api/tasks/", function(t, o) {
+      db.Task.findAll({}).then(function(t) {
+        o.json(t);
       });
     }),
-    o.post("/api/tasks", function(o, e) {
+    t.post("/api/tasks", function(t, o) {
       db.Task.create({
-        name: o.body.name,
-        status: o.body.status,
-        dueDate: o.body.dueDate,
-        developer: o.body.developer,
-        description: o.body.description,
-        completionDate: o.body.completionDate
+        name: t.body.name,
+        status: t.body.status,
+        dueDate: t.body.dueDate,
+        developer: t.body.developer,
+        description: t.body.description,
+        completionDate: t.body.completionDate
       })
-        .then(function(o) {
-          e.json(o);
+        .then(function(t) {
+          o.json(t);
         })
-        .catch(function(o) {
-          e.json(o);
+        .catch(function(t) {
+          o.json(t);
         });
     });
 };
