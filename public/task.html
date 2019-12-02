@@ -18,6 +18,403 @@
     <div class="container-fluid container-application">
       <div class="main-content position-relative">
         <div class="page-content">
+            <div class="modal fade fixed-right" id="modal-task-view" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-vertical modal-lg" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header row">
+                      <div class="col d-flex align-items-center">
+                        <div class="custom-control custom-checkbox mt-n1">
+                          <input type="checkbox" class="custom-control-input" id="check-modal-task">
+                          <label class="custom-control-label" for="check-modal-task"></label>
+                        </div>
+                        <h6 class="mb-0">Finish the logo design</h6>
+                      </div>
+                      <div class="col-auto">
+                        <div class="actions text-right">
+                          <a href="#" class="action-item action-favorite active" data-toggle="tooltip" data-original-title="Mark as favorite">
+                            <i class="fas fa-star"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-body">
+                      <!-- Task date -->
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <!-- Start date -->
+                          <div class="form-group mb-0">
+                            <label class="form-control-label">
+                              Start date
+                            </label>
+                            <input type="date" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <!-- Start date -->
+                          <div class="form-group mb-0">
+                            <label class="form-control-label">
+                              End date
+                            </label>
+                            <input type="date" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                      <hr />
+                      <div class="row mb-4 align-items-center">
+                        <div class="col-6">
+                          <label class="form-control-label mb-0">
+                            Checklist
+                          </label>
+                        </div>
+                        <div class="col-6 text-right">
+                          <a href="#" class="btn btn-xs btn-secondary btn-icon rounded-pill">
+                            <span class="btn-inner--icon"><i class="fas fa-plus"></i></span>
+                            <span class="btn-inner--text">Add item</span>
+                          </a>
+                        </div>
+                      </div>
+                      <!-- Dragable checklist -->
+                      <div class="checklist" data-toggle="dragula">
+                        <div class="card border draggable-item shadow-none">
+                          <div class="px-3 py-2 row align-items-center">
+                            <div class="col-10">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="check-item-1" checked>
+                                <label class="custom-control-label h6 text-sm" for="check-item-1">Call with Dave</label>
+                              </div>
+                            </div>
+                            <div class="col-auto card-meta d-inline-flex align-items-center ml-sm-auto">
+                              <div class="dropdown" data-toggle="dropdown">
+                                <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                  <a href="#" class="dropdown-item">Refresh</a>
+                                  <a href="#" class="dropdown-item">Manage Widgets</a>
+                                  <a href="#" class="dropdown-item">Settings</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card border draggable-item shadow-none">
+                          <div class="px-3 py-2 row align-items-center">
+                            <div class="col-10">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="check-item-2">
+                                <label class="custom-control-label h6 text-sm" for="check-item-2">Lunch meeting</label>
+                              </div>
+                            </div>
+                            <div class="col-auto card-meta d-inline-flex align-items-center ml-sm-auto">
+                              <div class="dropdown" data-toggle="dropdown">
+                                <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                  <a href="#" class="dropdown-item">Refresh</a>
+                                  <a href="#" class="dropdown-item">Manage Widgets</a>
+                                  <a href="#" class="dropdown-item">Settings</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card border draggable-item shadow-none">
+                          <div class="px-3 py-2 row align-items-center">
+                            <div class="col-10">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="check-item-3">
+                                <label class="custom-control-label h6 text-sm" for="check-item-3">Webpixels website redesign</label>
+                              </div>
+                            </div>
+                            <div class="col-auto card-meta d-inline-flex align-items-center ml-sm-auto">
+                              <div class="dropdown" data-toggle="dropdown">
+                                <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                  <a href="#" class="dropdown-item">Refresh</a>
+                                  <a href="#" class="dropdown-item">Manage Widgets</a>
+                                  <a href="#" class="dropdown-item">Settings</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card border draggable-item shadow-none">
+                          <div class="px-3 py-2 row align-items-center">
+                            <div class="col-10">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="check-item-4" checked>
+                                <label class="custom-control-label h6 text-sm" for="check-item-4">Dashboard cards</label>
+                              </div>
+                            </div>
+                            <div class="col-auto card-meta d-inline-flex align-items-center ml-sm-auto">
+                              <div class="dropdown" data-toggle="dropdown">
+                                <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                  <a href="#" class="dropdown-item">Refresh</a>
+                                  <a href="#" class="dropdown-item">Manage Widgets</a>
+                                  <a href="#" class="dropdown-item">Settings</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card border draggable-item shadow-none">
+                          <div class="px-3 py-2 row align-items-center">
+                            <div class="col-10">
+                              <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="check-item-5" checked>
+                                <label class="custom-control-label h6 text-sm" for="check-item-5">Call with Dave</label>
+                              </div>
+                            </div>
+                            <div class="col-auto card-meta d-inline-flex align-items-center ml-sm-auto">
+                              <div class="dropdown" data-toggle="dropdown">
+                                <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                  <a href="#" class="dropdown-item">Refresh</a>
+                                  <a href="#" class="dropdown-item">Manage Widgets</a>
+                                  <a href="#" class="dropdown-item">Settings</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr />
+                      <!-- Tab title -->
+                      <label class="form-control-label mb-4">
+                        Attachments
+                      </label>
+                      <!-- Files -->
+                      <div class="card mb-3 border shadow-none">
+                        <div class="px-3 py-3">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <img alt="Image placeholder" src="../../assets/img/icons/files/pdf.png" class="img-fluid" style="width: 40px;">
+                            </div>
+                            <div class="col ml-n2">
+                              <h6 class="text-sm mb-0">
+                                <a href="#!">design-principles.pdf</a>
+                              </h6>
+                              <p class="card-text small text-muted">
+                                189 KB
+                              </p>
+                            </div>
+                            <div class="col-auto actions">
+                              <div class="dropdown" data-toggle="dropdown">
+                                <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                  <a href="#" class="dropdown-item">Refresh</a>
+                                  <a href="#" class="dropdown-item">Manage Widgets</a>
+                                  <a href="#" class="dropdown-item">Settings</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card mb-3 border shadow-none">
+                        <div class="px-3 py-3">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <img alt="Image placeholder" src="../../assets/img/icons/files/psd.png" class="img-fluid" style="width: 40px;">
+                            </div>
+                            <div class="col ml-n2">
+                              <h6 class="text-sm mb-0">
+                                <a href="#!">website-wireframe.psd</a>
+                              </h6>
+                              <p class="card-text small text-muted">
+                                45.9 MB
+                              </p>
+                            </div>
+                            <div class="col-auto actions">
+                              <div class="dropdown" data-toggle="dropdown">
+                                <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                  <a href="#" class="dropdown-item">Refresh</a>
+                                  <a href="#" class="dropdown-item">Manage Widgets</a>
+                                  <a href="#" class="dropdown-item">Settings</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card mb-3 border shadow-none">
+                        <div class="px-3 py-3">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <img alt="Image placeholder" src="../../assets/img/icons/files/doc.png" class="img-fluid" style="width: 40px;">
+                            </div>
+                            <div class="col ml-n2">
+                              <h6 class="text-sm mb-0">
+                                <a href="#!">product-guidelines.doc</a>
+                              </h6>
+                              <p class="card-text small text-muted">
+                                87 KB
+                              </p>
+                            </div>
+                            <div class="col-auto actions">
+                              <div class="dropdown" data-toggle="dropdown">
+                                <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                  <a href="#" class="dropdown-item">Refresh</a>
+                                  <a href="#" class="dropdown-item">Manage Widgets</a>
+                                  <a href="#" class="dropdown-item">Settings</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card mb-3 border shadow-none">
+                        <div class="px-3 py-3">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <img alt="Image placeholder" src="../../assets/img/icons/files/avi.png" class="img-fluid" style="width: 40px;">
+                            </div>
+                            <div class="col ml-n2">
+                              <h6 class="text-sm mb-0">
+                                <a href="#!">banner-video.avi</a>
+                              </h6>
+                              <p class="card-text small text-muted">
+                                23 MB
+                              </p>
+                            </div>
+                            <div class="col-auto actions">
+                              <div class="dropdown" data-toggle="dropdown">
+                                <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                  <a href="#" class="dropdown-item">Refresh</a>
+                                  <a href="#" class="dropdown-item">Manage Widgets</a>
+                                  <a href="#" class="dropdown-item">Settings</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card mb-3 border shadow-none">
+                        <div class="px-3 py-3">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <img alt="Image placeholder" src="../../assets/img/icons/files/png.png" class="img-fluid" style="width: 40px;">
+                            </div>
+                            <div class="col ml-n2">
+                              <h6 class="text-sm mb-0">
+                                <a href="#!">logo.png</a>
+                              </h6>
+                              <p class="card-text small text-muted">
+                                189 kb
+                              </p>
+                            </div>
+                            <div class="col-auto actions">
+                              <div class="dropdown" data-toggle="dropdown">
+                                <a href="#" class="action-item" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                  <a href="#" class="dropdown-item">Refresh</a>
+                                  <a href="#" class="dropdown-item">Manage Widgets</a>
+                                  <a href="#" class="dropdown-item">Settings</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr />
+                      <label class="form-control-label mb-4">
+                        Activity
+                      </label>
+                      <div class="list-group list-group-flush mb-0">
+                        <div class="list-group-item px-0">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <!-- Avatar -->
+                              <a href="#" class="avatar avatar-sm rounded-circle">
+                                <img alt="Image placeholder" src="../../assets/img/theme/light/team-3-800x800.jpg" class="">
+                              </a>
+                            </div>
+                            <div class="col ml-n2">
+                              <a href="#!" class="d-block h6 text-sm font-weight-light mb-0">Martin added a new task to <strong>To Do</strong> list</a>
+                              <small class="d-block">20 min ago</small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="list-group-item px-0">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <!-- Avatar -->
+                              <a href="#" class="avatar avatar-sm rounded-circle">
+                                <img alt="Image placeholder" src="../../assets/img/theme/light/team-1-800x800.jpg" class="">
+                              </a>
+                            </div>
+                            <div class="col ml-n2">
+                              <a href="#!" class="d-block h6 text-sm font-weight-light mb-0">Jessie added <strong>Checklist</strong> to this card</a>
+                              <small class="d-block">2 hours ago</small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="list-group-item px-0">
+                          <div class="row align-items-center">
+                            <div class="col-auto">
+                              <!-- Avatar -->
+                              <a href="#" class="avatar avatar-sm rounded-circle">
+                                <img alt="Image placeholder" src="../../assets/img/theme/light/team-1-800x800.jpg" class="">
+                              </a>
+                            </div>
+                            <div class="col ml-n2">
+                              <a href="#!" class="d-block h6 text-sm font-weight-light mb-0">Martin added <strong>Jessie</strong> to the team</a>
+                              <small class="d-block">1 day ago</small>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer align-items-center">
+                      <div class="col-8 col-md-9 d-flex align-items-center">
+                        <div class="pr-3">
+                          <img alt="Image placeholder" src="../../assets/img/theme/light/team-2-800x800.jpg" class="avatar rounded-circle avatar-sm">
+                        </div>
+                        <form class="card-comment-box" role="form">
+                          <textarea rows="1" class="form-control" data-toggle="autosize" placeholder="Add a comment..."></textarea>
+                        </form>
+                      </div>
+                      <div class="col-4 col-md-3 text-right">
+                        <div class="actions">
+                          <a href="#!" class="action-item"><i class="fas fa-smile-wink"></i></a>
+                          <a href="#!" class="action-item"><i class="fas fa-camera"></i></a>
+                          <div class="dropdown">
+                            <a href="#" class="action-item" data-toggle="dropdown" aria-expanded="false">
+                              <i class="fas fa-ellipsis-h"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="#">Open post</a>
+                              <a class="dropdown-item" href="#">Report inappropriate</a>
+                              <a class="dropdown-item" href="#">Get the embed code</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
           <div
             class="modal fade"
             id="modal-task-create"
@@ -42,12 +439,6 @@
                         >Task description</label
                       >
                       <input type="text" class="form-control new-description" />
-                    </div>
-                    <div class="form-group">
-                      <label class="form-control-label mb-0" for="new-priority"
-                        >Priority</label
-                      >
-                      <input type="text" class="form-control new-priority" />
                     </div>
                     <div class="form-group">
                       <label class="form-control-label mb-0">Developer</label>
@@ -129,7 +520,7 @@
       <div class="row text-center text-sm-left align-items-sm-center">
         <div class="col-sm-6">
           <p class="text-sm mb-0">
-            © 2019<a class="h6 text-sm" href="#">TaskR</a>. All rights reserved.
+            © 2019<a class="h6 text-sm" href="#"> TaskR</a>. All rights reserved.
           </p>
         </div>
         <div class="col-sm-6 mb-md-0">
